@@ -1,0 +1,105 @@
+/* <------ FONTS ------> */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika+Negative:wght@300..700&display=swap');
+
+/* <------ COLORS ------> */
+:root {
+  /* 🎨 Backgrounds */
+  --color-bg: #101418; /* deep neutral dark grey (main background) */
+  --color-surface: #1b1f24; /* card / container background */
+  --color-surface-light: #262b31; /* lighter hover surface */
+
+  /* 🩶 Text */
+  --color-text: #e5e7eb; /* main text (off-white) */
+  --color-text-muted: #9ca3af; /* secondary text */
+
+  /* 💙 Primary Accent (Blue) */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-light: #60a5fa;
+
+  /* 🟠 Accent (Orange) */
+  --color-accent: #ff7b00;
+  --color-accent-hover: #e06a00;
+
+  /* 💚 / ❤️ States */
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+
+  /* 🧱 Borders & Effects */
+  --color-border: #2e3439;
+  --color-shadow: rgba(0, 0, 0, 0.6);
+  --color-glow: rgba(59, 130, 246, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+nav {
+  padding: 1em 2em;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav ul li a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+nav ul li:first-child {
+  margin-right: auto;
+  cursor: pointer;
+  transition: 300ms all ease-in-out;
+}
+
+nav ul li:first-child.active {
+  opacity: 0;
+}
+
+.nav-tabs {
+  font-size: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  background-color: rgb(255, 255, 255, 0.4);
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -350px;
+  padding: 2em;
+  z-index: 100;
+  transition: 300ms all ease-in-out;
+}
+
+.sidebar h3:first-child {
+  margin-top: 45px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  cursor: pointer;
+}
