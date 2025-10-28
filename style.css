@@ -3,32 +3,49 @@
 
 /* <------ COLORS ------> */
 :root {
-  /* 🎨 Backgrounds */
-  --color-bg: #101418; /* deep neutral dark grey (main background) */
-  --color-surface: #1b1f24; /* card / container background */
-  --color-surface-light: #262b31; /* lighter hover surface */
+  /* Backgrounds */
+  --color-bg: #101418;
+  --color-surface: #1b1f24;
+  --color-surface-light: #262b31;
 
-  /* 🩶 Text */
-  --color-text: #e5e7eb; /* main text (off-white) */
-  --color-text-muted: #9ca3af; /* secondary text */
+  /* Text */
+  --color-text: #e5e7eb;
+  --color-text-muted: #9ca3af;
 
-  /* 💙 Primary Accent (Blue) */
+  /* Primary Accent (Blue) */
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
   --color-primary-light: #60a5fa;
 
-  /* 🟠 Accent (Orange) */
+  /* Accent (Orange) */
   --color-accent: #ff7b00;
   --color-accent-hover: #e06a00;
 
-  /* 💚 / ❤️ States */
+  /* States */
   --color-success: #22c55e;
   --color-danger: #ef4444;
 
-  /* 🧱 Borders & Effects */
+  /* Borders & Effects */
   --color-border: #2e3439;
   --color-shadow: rgba(0, 0, 0, 0.6);
   --color-glow: rgba(59, 130, 246, 0.4);
+
+  /* Input Elements */
+  --input-bg: var(--color-surface);
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-primary);
+  --input-text: var(--color-text);
+  --input-placeholder: var(--color-text-muted);
+  --input-radius: 10px;
+  --input-padding: 10px 16px;
+  --input-glow: rgba(59, 130, 246, 0.4);
+
+  /* CTA (Buttons) */
+  --cta-bg: var(--color-primary);
+  --cta-bg-hover: var(--color-primary-hover);
+  --cta-text: #ffffff;
+  --cta-radius: 40px;
+  --cta-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
 }
 
 * {
@@ -102,4 +119,77 @@ nav ul li:first-child.active {
   right: 0;
   margin: 10px;
   cursor: pointer;
+}
+
+.dashboard {
+  padding: 6em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-trans {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trans-amount-input {
+  width: 250px;
+  padding: 8px 14px;
+  border-radius: 36px;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  outline: none;
+  border: 2px solid transparent;
+  background-color: var(--input-bg);
+  color: var(--color-text);
+  transition: 300ms all ease-in-out;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.trans-amount-input:focus {
+  background-color: transparent;
+  border: 2px solid var(--input-border-focus);
+  color: var(--color-text);
+}
+
+.trans-type-input {
+  width: 250px;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  background-color: var(--input-bg);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.trans-add-btn {
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+  font-size: 16px;
+  width: 100px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 4px;
+  transition: 300ms all ease-in-out;
+}
+
+.trans-add-btn:hover {
+  background-color: var(--cta-bg-hover);
 }
