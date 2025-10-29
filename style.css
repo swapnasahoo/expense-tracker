@@ -51,6 +51,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -100,7 +101,7 @@ nav ul li:first-child.active {
   height: 100%;
   position: fixed;
   top: 0;
-  left: -350px;
+  left: -500px;
   padding: 2em;
   z-index: 100;
   transition: 300ms all ease-in-out;
@@ -128,6 +129,7 @@ nav ul li:first-child.active {
   align-items: center;
   flex-direction: column;
 }
+
 .create-trans h2 {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   padding-bottom: 6px;
@@ -208,8 +210,9 @@ input[type='number'] {
 
 .transaction-list {
   padding: 3.5rem;
+  width: 70vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.2rem;
 }
 
@@ -218,7 +221,6 @@ input[type='number'] {
   align-items: center;
   padding: 10px 16px;
   border-radius: 10px;
-  min-width: 90%;
   gap: 28px;
   cursor: pointer;
   background-color: var(--color-surface-light);
@@ -230,6 +232,35 @@ input[type='number'] {
 }
 
 .transaction p:first-child {
+  margin-right: auto;
   font-weight: 600;
-  color: var(--color-success);
+}
+
+@media (max-width: 548px) {
+  .nav-tabs {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .transaction-list {
+    margin-right: 30px;
+  }
+
+  .transaction {
+    width: 240px;
+    max-width: 80%;
+  }
+
+  .sidebar {
+    width: 100vw;
+    background-color: rgb(255, 255, 255, 0.5);
+    backdrop-filter: blur(100px);
+    transition: 500ms all ease;
+  }
+
+  .sidebar svg {
+    right: 80px;
+    top: 30px;
+  }
 }

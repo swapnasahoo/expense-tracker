@@ -127,10 +127,9 @@ function renderTransaction() {
           <p class="trans-amount" style="color: ${color}">${transSign}${transaction.amount}</p>
           <p>${transaction.date}</p>
         </div>`;
-
-    document.querySelector('.transaction-list').innerHTML = html;
   });
 
+  document.querySelector('.transaction-list').innerHTML = html;
   document.querySelector(
     '.total-income'
   ).innerHTML = `Total income: ${totalIncome}`;
