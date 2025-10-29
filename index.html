@@ -61,18 +61,21 @@
 
     <section class="dashboard">
       <div class="create-trans">
+        <h2>Add Transaction</h2>
         <input
           type="number"
           placeholder="Enter the transaction amount"
           class="trans-amount-input"
           required
         />
-        <select class="trans-type-input" required>
-          <option disabled>Select type</option>
-          <option value="income">Income</option>
-          <option value="expense">Expense</option>
-        </select>
-        <button type="submit" class="trans-add-btn">Add</button>
+        <div class="trans-type-div">
+          <select class="trans-type-input" required>
+            <option disabled>Select type</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <button type="submit" class="trans-add-btn">Add</button>
+        </div>
       </div>
 
       <div class="transaction-list"></div>

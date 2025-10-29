@@ -78,7 +78,7 @@ nav ul li a {
 
 nav ul li:first-child {
   margin-right: auto;
-  cursor: pointer;
+  cursor: ew-resize;
   transition: 300ms all ease-in-out;
 }
 
@@ -119,14 +119,18 @@ nav ul li:first-child.active {
   top: 0;
   right: 0;
   margin: 10px;
-  cursor: pointer;
+  cursor: ew-resize;
 }
 
 .dashboard {
-  padding: 6em;
+  padding: 4.2em;
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.create-trans h2 {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  padding-bottom: 6px;
 }
 
 .create-trans {
@@ -167,7 +171,7 @@ input[type='number'] {
 }
 
 .trans-type-input {
-  width: 250px;
+  width: 150px;
   padding: 10px 16px;
   font-size: 16px;
   border-radius: 8px;
@@ -189,6 +193,13 @@ input[type='number'] {
   border-radius: 8px;
   margin-top: 4px;
   transition: 300ms all ease-in-out;
+  height: 39.2px;
+}
+
+.trans-type-div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .trans-add-btn:hover {
