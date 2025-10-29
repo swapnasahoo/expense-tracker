@@ -31,6 +31,8 @@ function createTransaction() {
 }
 
 function renderTransaction() {
+  let totalIncome = 0;
+  let totalExpense = 0;
   let html = '';
 
   transactionList.forEach((transaction) => {
@@ -39,6 +41,10 @@ function renderTransaction() {
         ? 'var(--color-success)'
         : 'var(--color-danger)';
     let transSign = transaction.type === 'income' ? '+' : '-';
+    totalIncome +=
+      transaction.type === 'income' ? Number(transaction.amount) : 0;
+    totalExpense -=
+      transaction.type === 'expense' ? Number(transaction.amount) : 0;
 
     html += `
         <div class="transaction">
@@ -48,6 +54,16 @@ function renderTransaction() {
 
     document.querySelector('.transaction-list').innerHTML = html;
   });
+
+  document.querySelector(
+    '.total-income'
+  ).innerHTML = `Total income: ${totalIncome}`;
+  document.querySelector(
+    '.total-expense'
+  ).innerHTML = `Total expense: ${totalExpense}`;
+  document.querySelector('.remaining-bal').innerHTML = `Remaining Balanace: ${
+    totalIncome + totalExpense
+  }`;
 }
 
 document.querySelector('.trans-add-btn').addEventListener('click', () => {

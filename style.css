@@ -84,6 +84,7 @@ nav ul li:first-child {
 
 nav ul li:first-child.active {
   opacity: 0;
+  cursor: e-resize;
 }
 
 .nav-tabs {
