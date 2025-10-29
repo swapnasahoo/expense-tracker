@@ -240,6 +240,11 @@ input[type='number'] {
   transform: translateY(-5px);
 }
 
+.chart-view a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
 .transaction {
   display: flex;
   align-items: center;

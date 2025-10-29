@@ -1,0 +1,33 @@
+.summary {
+  padding: 4em;
+  display: flex;
+  justify-content: center;
+}
+
+.pie-chart {
+  height: 400px;
+  width: 400px;
+  cursor: pointer;
+}
+
+@media (max-width: 588px) {
+  .summary {
+    padding: 3em;
+  }
+
+  .pie-chart {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media (max-width: 425px) {
+  .summary {
+    padding-top: 4em;
+  }
+
+  .pie-chart {
+    height: 320px;
+    width: 320px;
+  }
+}

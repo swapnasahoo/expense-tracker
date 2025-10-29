@@ -1,4 +1,11 @@
-const transactionList = [];
+const transactionList =
+  JSON.parse(localStorage.getItem('transactionList')) || [];
+
+if (transactionList) {
+  document.querySelector('.chart-view').style.display = 'block';
+}
+renderTransaction();
+console.log(transactionList);
 
 document.querySelector('.js-open-sidebar').addEventListener('click', () => {
   document.querySelector('.sidebar').classList.toggle('active');
@@ -20,8 +27,6 @@ document.body.addEventListener('keydown', (e) => {
 function createTransaction() {
   const transAmount = document.querySelector('.trans-amount-input');
   const transType = document.querySelector('.trans-type-input');
-
-  document.querySelector('.chart-view').style.display = 'block';
 
   const createDateTime = new Date();
   let date = createDateTime.getDate();
@@ -141,6 +146,8 @@ function renderTransaction() {
   document.querySelector('.remaining-bal').innerHTML = `Remaining Balanace: ${
     totalIncome + totalExpense
   }`;
+
+  localStorage.setItem('transactionList', JSON.stringify(transactionList));
 }
 
 document.querySelector('.trans-add-btn').addEventListener('click', () => {
