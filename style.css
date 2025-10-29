@@ -216,6 +216,30 @@ input[type='number'] {
   gap: 1.2rem;
 }
 
+.chart-view {
+  cursor: pointer;
+  position: absolute;
+  top: 310px;
+  left: 220px;
+  width: max-content;
+  display: none;
+  transition: 300ms all ease-in-out;
+}
+
+.chart-view::after {
+  content: '';
+  background: linear-gradient(45deg, var(--color-danger), var(--color-accent));
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.chart-view:hover {
+  transform: translateY(-5px);
+}
+
 .transaction {
   display: flex;
   align-items: center;

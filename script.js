@@ -21,6 +21,8 @@ function createTransaction() {
   const transAmount = document.querySelector('.trans-amount-input');
   const transType = document.querySelector('.trans-type-input');
 
+  document.querySelector('.chart-view').style.display = 'block';
+
   const createDateTime = new Date();
   let date = createDateTime.getDate();
   let month = createDateTime.getMonth();
