@@ -21,9 +21,85 @@ function createTransaction() {
   const transAmount = document.querySelector('.trans-amount-input');
   const transType = document.querySelector('.trans-type-input');
 
+  const createDateTime = new Date();
+  let date = createDateTime.getDate();
+  let month = createDateTime.getMonth();
+  let year = createDateTime.getFullYear();
+  let hours = createDateTime.getHours();
+  let minutes = createDateTime.getMinutes();
+
+  let dateOrdinal = '';
+  let monthName = '';
+
+  // SWTICH CASE FOR GENERATING dateOrdinal(th, st, nd)
+  switch (date) {
+    case 1:
+      dateOrdinal = 'st';
+      break;
+    case 2:
+      dateOrdinal = 'nd';
+      break;
+    case 3:
+      dateOrdinal = 'rd';
+      break;
+    case 21:
+      dateOrdinal = 'st';
+      break;
+    case 22:
+      dateOrdinal = 'nd';
+      break;
+    case 23:
+      dateOrdinal = 'rd';
+      break;
+    default:
+      dateOrdinal = 'th';
+  }
+
+  // SWITCH CASE FOR GENERATING monthName('Jan', 'Feb', etc..)
+  switch (month) {
+    case 1:
+      monthName = 'Jan';
+      break;
+    case 2:
+      monthName = 'Feb';
+      break;
+    case 3:
+      monthName = 'Mar';
+      break;
+    case 4:
+      monthName = 'Apr';
+      break;
+    case 5:
+      monthName = 'May';
+      break;
+    case 6:
+      monthName = 'Jun';
+      break;
+    case 7:
+      monthName = 'Jul';
+      break;
+    case 8:
+      monthName = 'Aug';
+      break;
+    case 9:
+      monthName = 'Sep';
+      break;
+    case 10:
+      monthName = 'Oct';
+      break;
+    case 11:
+      monthName = 'Nov';
+      break;
+    case 12:
+      monthName = 'Dec';
+      break;
+  }
+
+  console.log();
+
   transactionList.push({
     amount: transAmount.value,
-    date: '28th Sep 2025 22:41',
+    date: `${date + dateOrdinal} ${monthName} ${year} ${hours}:${minutes}`,
     type: transType.value,
   });
 
