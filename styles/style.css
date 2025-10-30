@@ -131,6 +131,9 @@ nav ul li:first-child.active {
   color: var(--color-border);
   font-weight: 700;
   margin-top: -8px;
+  font-size: 15px;
+  opacity: 0;
+  transition: 300ms all ease;
 }
 
 .dashboard {

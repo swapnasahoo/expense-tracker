@@ -128,8 +128,8 @@ document.querySelector('.reset-data').addEventListener('click', () => {
   localStorage.setItem('transactionList', JSON.stringify(transactionList));
   renderTransaction();
 
-  document.querySelector('.confirm-msg').innerHTML = 'Data reset successful';
+  document.querySelector('.confirm-msg').style.opacity = '1';
   setTimeout(() => {
-    document.querySelector('.confirm-msg').innerHTML = '';
-  }, 2000);
+    document.querySelector('.confirm-msg').style.opacity = '0';
+  }, 2300);
 });
