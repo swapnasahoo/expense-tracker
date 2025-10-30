@@ -62,10 +62,30 @@
 
     <section class="dashboard">
       <button class="show-trans-create">Add Transaction</button>
+
       <div class="pop-up"></div>
 
       <div class="chart-view-div">
         <a class="chart-view" href="chart.html">View as Chart</a>
+      </div>
+      <div class="filter-icon-div">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#ffffff"
+          class="filter-icon"
+        >
+          <path
+            d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"
+          />
+        </svg>
+      </div>
+      <div class="filter-menu-container">
+        <a class="filter-reset">Reset</a>
+        <a class="filter-income">Income</a>
+        <a class="filter-expense">Expense</a>
       </div>
       <div class="transaction-list"></div>
     </section>
@@ -73,6 +93,7 @@
     <div class="overlay"></div>
 
     <script src="scripts/common.js"></script>
+    <script src="scripts/filter-transaction.js"></script>
     <script src="scripts/index.js"></script>
   </body>
 </html>

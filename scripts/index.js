@@ -95,3 +95,42 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
     popUp.style.pointerEvents = 'none';
   });
 });
+
+// CODE TO OPEN FILTERS MENU
+
+document.querySelector('.filter-icon').addEventListener('click', () => {
+  document.querySelector('.filter-menu-container').classList.toggle('active');
+  document.querySelector('.transaction-list').classList.toggle('active');
+});
+
+// CODE TO FILTER INCOME & EXPENSE
+// ALSO TO RESET FILTER
+
+// FILTER INCOME
+document.querySelector('.filter-income').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const incomes = transactionList.filter((t) => t.type === 'income');
+  transactionList = incomes;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// FILTER EXPENSE
+document.querySelector('.filter-expense').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const expenses = transactionList.filter((t) => t.type === 'expense');
+  transactionList = expenses;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// FILTER RESET
+document.querySelector('.filter-reset').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+function hideFilterMenu() {
+  document.querySelector('.filter-menu-container').classList.toggle('active');
+}

@@ -7,6 +7,7 @@
   --color-bg: #101418;
   --color-surface: #1b1f24;
   --color-surface-light: #262b31;
+  --color-surface-light-blur: rgb(38, 43, 49, 0.4);
   --color-pop-up-bg: rgba(38, 43, 49, 0.6);
 
   /* Text */
@@ -311,12 +312,18 @@ input[type='number'] {
   gap: 1.2rem;
 }
 
-.chart-view-div {
+.transaction-list.active {
+  pointer-events: none;
+}
+
+.chart-view-div,
+.filter-icon-div {
   position: relative;
   width: 70%;
 }
 
-.chart-view {
+.chart-view,
+.filter-icon {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -326,6 +333,34 @@ input[type='number'] {
   cursor: pointer;
   width: max-content;
   transition: 300ms all ease-in-out;
+}
+
+.filter-icon {
+  left: 100%;
+}
+
+.filter-menu-container {
+  background-color: var(--color-surface-light-blur);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+  position: absolute;
+  margin: 140px 15px 0 70%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 300ms all ease;
+}
+
+.filter-menu-container a {
+  cursor: pointer;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.filter-menu-container.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .chart-view::after {
