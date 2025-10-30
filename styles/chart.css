@@ -36,6 +36,7 @@
 @media (max-width: 425px) {
   .summary {
     padding-top: 4em;
+    margin-left: 10px;
   }
 
   .pie-chart {

@@ -18,14 +18,17 @@ document.body.addEventListener('keydown', (e) => {
   }
 });
 
-// CODE TO GENERATER USER ID
+// CODE TO GENERATER USER ID AND SAVE IT INTO localStorage
 
 const userIDRef = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-let userID = '';
+let userID = localStorage.getItem('userID') || '';
 
-for (let i = 0; i < 6; i++) {
-  const randomIndex = Math.floor(Math.random() * 36);
-  userID += userIDRef[randomIndex];
+if (!userID) {
+  for (let i = 0; i < 6; i++) {
+    const randomIndex = Math.floor(Math.random() * 36);
+    userID += userIDRef[randomIndex];
+  }
+  localStorage.setItem('userID', userID);
 }
 document.querySelector(
   '.user-id'
