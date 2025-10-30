@@ -109,8 +109,6 @@ function createTransaction() {
       break;
   }
 
-  console.log();
-
   transactionList.push({
     amount: transAmount.value,
     date: `${date + dateOrdinal} ${monthName} ${year} ${hours}:${minutes}`,
