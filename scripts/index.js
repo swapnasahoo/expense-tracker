@@ -40,6 +40,9 @@ function renderTransaction() {
   localStorage.setItem('transactionList', JSON.stringify(transactionList));
 }
 
+// CODE TO MAKE THE POP UP
+const popUp = document.querySelector('.pop-up');
+
 document.querySelector('.show-trans-create').addEventListener('click', () => {
   document.querySelector('.pop-up').innerHTML = `
         <svg
@@ -71,14 +74,16 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
           </select>
           <button type="submit" class="trans-add-btn">Add</button>
         </div>`;
-  document.querySelector('.pop-up').classList.add('active');
-  document.querySelector('.pop-up').style.opacity = '1';
-  document.querySelector('.pop-up').style.pointerEvents = 'all';
+  popUp.classList.add('active');
+  popUp.classList.remove('close');
+  popUp.style.opacity = '1';
+  popUp.style.pointerEvents = 'all';
 
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
-    document.querySelector('.pop-up').classList.remove('active');
-    document.querySelector('.pop-up').style.opacity = '0';
-    document.querySelector('.pop-up').style.pointerEvents = 'none';
+    popUp.classList.add('close');
+    popUp.classList.remove('active');
+    popUp.style.opacity = '0';
+    popUp.style.pointerEvents = 'none';
   });
 
   document.querySelector('.trans-add-btn').addEventListener('click', () => {

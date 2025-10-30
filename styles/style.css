@@ -260,6 +260,10 @@ input[type='number'] {
   animation: scale-up 0.4s 1;
 }
 
+.pop-up.close {
+  animation: scale-down 0.4s 1;
+}
+
 .close-popup-icon {
   position: absolute;
   top: 0;
@@ -338,6 +342,15 @@ input[type='number'] {
   }
   100% {
     scale: 1;
+  }
+}
+
+@keyframes scale-down {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0.5;
   }
 }
 
