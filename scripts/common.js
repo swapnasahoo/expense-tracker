@@ -1,12 +1,6 @@
 const transactionList =
   JSON.parse(localStorage.getItem('transactionList')) || [];
 
-if (transactionList) {
-  document.querySelector('.chart-view').style.display = 'block';
-}
-renderTransaction();
-console.log(transactionList);
-
 document.querySelector('.js-open-sidebar').addEventListener('click', () => {
   document.querySelector('.sidebar').classList.toggle('active');
   document.querySelector('nav ul li:first-child').classList.toggle('active');
@@ -23,6 +17,19 @@ document.body.addEventListener('keydown', (e) => {
     document.querySelector('nav ul li:first-child').classList.toggle('active');
   }
 });
+
+// CODE TO GENERATER USER ID
+
+const userIDRef = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+let userID = '';
+
+for (let i = 0; i < 6; i++) {
+  const randomIndex = Math.floor(Math.random() * 36);
+  userID += userIDRef[randomIndex];
+}
+document.querySelector(
+  '.user-id'
+).innerHTML = `UserID: <b class="user-id-ref">${userID}</b>`;
 
 function createTransaction() {
   const transAmount = document.querySelector('.trans-amount-input');
@@ -112,57 +119,3 @@ function createTransaction() {
 
   renderTransaction();
 }
-
-function renderTransaction() {
-  let totalIncome = 0;
-  let totalExpense = 0;
-  let html = '';
-
-  transactionList.forEach((transaction) => {
-    let color =
-      transaction.type === 'income'
-        ? 'var(--color-success)'
-        : 'var(--color-danger)';
-    let transSign = transaction.type === 'income' ? '+' : '-';
-    totalIncome +=
-      transaction.type === 'income' ? Number(transaction.amount) : 0;
-    totalExpense -=
-      transaction.type === 'expense' ? Number(transaction.amount) : 0;
-
-    html += `
-        <div class="transaction">
-          <p class="trans-amount" style="color: ${color}">${transSign}${transaction.amount}</p>
-          <p>${transaction.date}</p>
-        </div>`;
-  });
-
-  document.querySelector('.transaction-list').innerHTML = html;
-  document.querySelector(
-    '.total-income'
-  ).innerHTML = `Total income: ${totalIncome}`;
-  document.querySelector(
-    '.total-expense'
-  ).innerHTML = `Total expense: ${totalExpense}`;
-  document.querySelector('.remaining-bal').innerHTML = `Remaining Balanace: ${
-    totalIncome + totalExpense
-  }`;
-
-  localStorage.setItem('transactionList', JSON.stringify(transactionList));
-}
-
-document.querySelector('.trans-add-btn').addEventListener('click', () => {
-  createTransaction();
-});
-
-// CODE TO GENERATER USER ID
-
-const userIDRef = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-let userID = '';
-
-for (let i = 0; i < 6; i++) {
-  const randomIndex = Math.floor(Math.random() * 36);
-  userID += userIDRef[randomIndex];
-}
-document.querySelector(
-  '.user-id'
-).innerHTML = `UserID: <b class="user-id-ref">${userID}</b>`;
