@@ -71,10 +71,12 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
           </select>
           <button type="submit" class="trans-add-btn">Add</button>
         </div>`;
+  document.querySelector('.pop-up').classList.add('active');
   document.querySelector('.pop-up').style.opacity = '1';
   document.querySelector('.pop-up').style.pointerEvents = 'all';
 
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
+    document.querySelector('.pop-up').classList.remove('active');
     document.querySelector('.pop-up').style.opacity = '0';
     document.querySelector('.pop-up').style.pointerEvents = 'none';
   });

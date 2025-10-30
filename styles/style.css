@@ -256,6 +256,10 @@ input[type='number'] {
   transition: 300ms all ease;
 }
 
+.pop-up.active {
+  animation: scale-up 0.4s 1;
+}
+
 .close-popup-icon {
   position: absolute;
   top: 0;
@@ -328,6 +332,15 @@ input[type='number'] {
   font-weight: 600;
 }
 
+@keyframes scale-up {
+  0% {
+    scale: 0.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
 @media (max-width: 548px) {
   .nav-tabs {
     display: none;
@@ -358,5 +371,12 @@ input[type='number'] {
   .sidebar svg {
     right: 80px;
     top: 30px;
+  }
+}
+
+@media (max-width: 348px) {
+  .pop-up {
+    width: 250px;
+    padding: 16px 24px;
   }
 }
