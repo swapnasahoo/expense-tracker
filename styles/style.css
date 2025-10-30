@@ -95,7 +95,7 @@ nav ul li:first-child.active {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0.8em;
+  gap: 0.7em;
   background-color: rgb(255, 255, 255, 0.4);
   width: 250px;
   height: 100%;

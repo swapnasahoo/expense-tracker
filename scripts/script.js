@@ -153,3 +153,16 @@ function renderTransaction() {
 document.querySelector('.trans-add-btn').addEventListener('click', () => {
   createTransaction();
 });
+
+// CODE TO GENERATER USER ID
+
+const userIDRef = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+let userID = '';
+
+for (let i = 0; i < 6; i++) {
+  const randomIndex = Math.floor(Math.random() * 36);
+  userID += userIDRef[randomIndex];
+}
+document.querySelector(
+  '.user-id'
+).innerHTML = `UserID: <b class="user-id-ref">${userID}</b>`;
