@@ -40,6 +40,46 @@ function renderTransaction() {
   localStorage.setItem('transactionList', JSON.stringify(transactionList));
 }
 
-document.querySelector('.trans-add-btn').addEventListener('click', () => {
-  createTransaction();
+document.querySelector('.show-trans-create').addEventListener('click', () => {
+  document.querySelector('.pop-up').innerHTML = `
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="28px"
+          viewBox="0 -960 960 960"
+          width="28px"
+          fill="#ffffff"
+          class="close-popup-icon"
+        >
+          <path
+            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+          />
+        </svg>
+        <div class="create-trans">
+          <h2>Add Transaction</h2>
+          <input
+            type="number"
+            placeholder="Enter the transaction amount"
+            class="trans-amount-input"
+            required
+          />
+        </div>
+        <div class="trans-type-div">
+          <select class="trans-type-input" required>
+            <option disabled>Select type</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <button type="submit" class="trans-add-btn">Add</button>
+        </div>`;
+  document.querySelector('.pop-up').style.opacity = '1';
+  document.querySelector('.pop-up').style.pointerEvents = 'all';
+
+  document.querySelector('.close-popup-icon').addEventListener('click', () => {
+    document.querySelector('.pop-up').style.opacity = '0';
+    document.querySelector('.pop-up').style.pointerEvents = 'none';
+  });
+
+  document.querySelector('.trans-add-btn').addEventListener('click', () => {
+    createTransaction();
+  });
 });
