@@ -1,5 +1,4 @@
-const transactionList =
-  JSON.parse(localStorage.getItem('transactionList')) || [];
+let transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
 
 document.querySelector('.js-open-sidebar').addEventListener('click', () => {
   document.querySelector('.sidebar').classList.toggle('active');
@@ -120,3 +119,17 @@ function createTransaction() {
 
   renderTransaction();
 }
+
+// CODE TO RESET DATA
+
+document.querySelector('.reset-data').addEventListener('click', () => {
+  // CODE TO REMOVE ALL TRANSACTIONS
+  transactionList = [];
+  localStorage.setItem('transactionList', JSON.stringify(transactionList));
+  renderTransaction();
+
+  document.querySelector('.confirm-msg').innerHTML = 'Data reset successful';
+  setTimeout(() => {
+    document.querySelector('.confirm-msg').innerHTML = '';
+  }, 2000);
+});

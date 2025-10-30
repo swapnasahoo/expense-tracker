@@ -123,6 +123,16 @@ nav ul li:first-child.active {
   cursor: ew-resize;
 }
 
+.reset-data {
+  cursor: pointer;
+}
+
+.confirm-msg {
+  color: var(--color-border);
+  font-weight: 700;
+  margin-top: -8px;
+}
+
 .dashboard {
   padding: 4.2em;
   display: flex;
