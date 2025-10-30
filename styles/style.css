@@ -124,7 +124,7 @@ nav ul li:first-child.active {
   cursor: ew-resize;
 }
 
-.reset-data {
+.show-reset-data {
   cursor: pointer;
 }
 
@@ -142,6 +142,11 @@ nav ul li:first-child.active {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.pop-up-name {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  padding-bottom: 6px;
 }
 
 .create-trans h2 {
@@ -199,7 +204,8 @@ input[type='number'] {
   cursor: pointer;
 }
 
-.trans-add-btn {
+.trans-add-btn,
+.reset-trans-btn {
   background-color: var(--cta-bg);
   color: var(--cta-text);
   font-size: 16px;
@@ -212,16 +218,31 @@ input[type='number'] {
   height: 39.2px;
 }
 
+.trans-add-btn:hover {
+  background-color: var(--cta-bg-hover);
+}
+
+.reset-trans-btn {
+  background-color: var(--color-danger);
+  transition: 300ms all ease;
+}
+
+.reset-trans-btn:hover {
+  background-color: #dc2626;
+}
+
+.reset-confirm-msg {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
 .trans-type-div {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-}
-
-.trans-add-btn:hover {
-  background-color: var(--cta-bg-hover);
 }
 
 .show-trans-create {
@@ -270,6 +291,16 @@ input[type='number'] {
   right: 0;
   padding: 8px;
   cursor: pointer;
+}
+
+.reset-pop-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reset-pop-up .pop-up-name {
+  margin-bottom: 10px;
 }
 
 .transaction-list {

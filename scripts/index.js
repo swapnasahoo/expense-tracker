@@ -45,6 +45,7 @@ const popUp = document.querySelector('.pop-up');
 
 document.querySelector('.show-trans-create').addEventListener('click', () => {
   document.querySelector('.pop-up').innerHTML = `
+      <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="28px"
@@ -88,5 +89,9 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
 
   document.querySelector('.trans-add-btn').addEventListener('click', () => {
     createTransaction();
+    popUp.classList.add('close');
+    popUp.classList.remove('active');
+    popUp.style.opacity = '0';
+    popUp.style.pointerEvents = 'none';
   });
 });
