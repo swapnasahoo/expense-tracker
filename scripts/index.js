@@ -19,8 +19,8 @@ function createTransaction() {
   let date = createDateTime.getDate();
   let month = createDateTime.getMonth();
   let year = createDateTime.getFullYear();
-  let hours = createDateTime.getHours();
-  let minutes = createDateTime.getMinutes();
+  let hours = createDateTime.getHours().toString().padStart(2, '0');
+  let minutes = createDateTime.getMinutes().toString().padStart(2, '0');
 
   let dateOrdinal = '';
   let monthName = '';
