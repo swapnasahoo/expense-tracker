@@ -533,7 +533,7 @@ input[type='number'] {
   }
 
   .transaction-list {
-    margin-right: 40px;
+    margin-right: 20px;
   }
 
   .transaction {
@@ -591,5 +591,9 @@ input[type='number'] {
   .pop-up {
     width: 250px;
     padding: 16px 24px;
+  }
+
+  .transaction-list {
+    margin-right: 45px;
   }
 }

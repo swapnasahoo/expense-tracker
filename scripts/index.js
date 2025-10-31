@@ -126,7 +126,7 @@ function renderTransaction() {
             <p class="trans-amount-sign" style="background-color: ${color}">${transSign}</p>
           </div>
           <div class="trans-info"></div>
-          <p class="trans-amount">52</p>
+          <p class="trans-amount">${transaction.amount}</p>
           <p class="trans-category-name">${transaction.category}</p>
           <p class="trans-date">${transaction.date}</p>
         </div>`;
