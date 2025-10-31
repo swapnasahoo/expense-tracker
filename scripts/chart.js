@@ -1,4 +1,5 @@
 const pieChart = document.querySelector('.pie-chart');
+const incomePieChart = document.querySelector('.income-pie-chart');
 
 let income = 0;
 let expense = 0;
@@ -60,3 +61,135 @@ if (income === 0 && expense === 0) {
     },
   });
 }
+
+// CODE TO GENERATE INCOME CATEGORY PIE CHART
+let salary = 0;
+let freelance = 0;
+let business = 0;
+let investments = 0;
+let gift = 0;
+let refund = 0;
+let interest = 0;
+let rentalIncome = 0;
+let bonus = 0;
+let others = 0;
+
+transactionList
+  .filter((t) => t.category === 'salary')
+  .forEach((t) => {
+    salary += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'freelance')
+  .forEach((t) => {
+    freelance += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'business')
+  .forEach((t) => {
+    business += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'investments')
+  .forEach((t) => {
+    investments += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'gift')
+  .forEach((t) => {
+    gift += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'refund')
+  .forEach((t) => {
+    refund += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'interest')
+  .forEach((t) => {
+    interest += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'rental-income')
+  .forEach((t) => {
+    rentalIncome += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'bonus')
+  .forEach((t) => {
+    bonus += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'others')
+  .forEach((t) => {
+    others += Number(t.amount);
+  });
+
+// PIE CHART
+new Chart(incomePieChart, {
+  type: 'pie',
+  data: {
+    labels: [
+      'Salary',
+      'Freelance',
+      'Business',
+      'Investments',
+      'Gift',
+      'Refund',
+      'Interest',
+      'Rental Income',
+      'Bonus',
+      'Others',
+    ],
+    datasets: [
+      {
+        label: 'Income',
+        data: [
+          salary,
+          freelance,
+          business,
+          investments,
+          gift,
+          refund,
+          interest,
+          rentalIncome,
+          bonus,
+          others,
+        ],
+      },
+    ],
+  },
+  options: {
+    responsive: false,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#d3d3d3ff',
+        },
+      },
+    },
+  },
+});
+
+// TO RESET PIE CHART
+document.querySelector('.chart-reset-btn').addEventListener('click', () => {
+  document.querySelector('.pie-chart').style.display = 'block';
+  document.querySelector('.income-pie-chart').classList.remove('active');
+});
+
+// TO SHOW INCOME CATEGORY
+document.querySelector('.income-category-btn').addEventListener('click', () => {
+  document.querySelector('.pie-chart').style.display = 'none';
+  document.querySelector('.income-pie-chart').classList.add('active');
+});

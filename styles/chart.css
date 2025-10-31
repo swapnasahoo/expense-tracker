@@ -1,5 +1,33 @@
+.filter-div {
+  margin-top: 60px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.income-category-btn,
+.chart-reset-btn {
+  padding: 4px 16px;
+  background-color: var(--cta-bg);
+  color: var(--cta-color-text);
+  font-size: 16px;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  border: none;
+  cursor: pointer;
+  pointer-events: all;
+  border-radius: 4px;
+  box-shadow: var(--cta-shaow);
+  transition: 300ms all ease;
+}
+
+.income-category-btn:hover {
+  background-color: var(--cta-bg-hover);
+}
+
 .summary {
-  padding: 4em;
+  padding: 0.2em;
   display: flex;
   justify-content: center;
   position: relative;
@@ -10,7 +38,7 @@
   align-items: center;
   gap: 4px;
   position: absolute;
-  bottom: 0;
+  bottom: -32px;
   cursor: pointer;
   text-decoration: none;
   color: var(--color-text);
@@ -20,6 +48,19 @@
   height: 400px;
   width: 400px;
   cursor: pointer;
+  margin-top: 50px;
+}
+
+.income-pie-chart {
+  height: 400px;
+  width: 400px;
+  cursor: pointer;
+  margin-top: 50px;
+  display: none !important;
+}
+
+.income-pie-chart.active {
+  display: block !important;
 }
 
 @media (max-width: 588px) {
