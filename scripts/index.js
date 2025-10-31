@@ -3,6 +3,102 @@ if (transactionList) {
 }
 renderTransaction();
 
+function createTransaction() {
+  const transAmount = document.querySelector('.trans-amount-input');
+  const transType = document.querySelector('.trans-type-input');
+  let transCategory = '';
+
+  // CODE TO CHECK WHICH trans-category IS SELECTED
+  if (transType.value === 'income') {
+    transCategory = document.querySelector('.trans-income-category').value;
+  } else if (transType.value === 'expense') {
+    transCategory = document.querySelector('.trans-expense-category').value;
+  }
+
+  const createDateTime = new Date();
+  let date = createDateTime.getDate();
+  let month = createDateTime.getMonth();
+  let year = createDateTime.getFullYear();
+  let hours = createDateTime.getHours();
+  let minutes = createDateTime.getMinutes();
+
+  let dateOrdinal = '';
+  let monthName = '';
+
+  // SWTICH CASE FOR GENERATING dateOrdinal(th, st, nd)
+  switch (date) {
+    case 1:
+      dateOrdinal = 'st';
+      break;
+    case 2:
+      dateOrdinal = 'nd';
+      break;
+    case 3:
+      dateOrdinal = 'rd';
+      break;
+    case 21:
+      dateOrdinal = 'st';
+      break;
+    case 22:
+      dateOrdinal = 'nd';
+      break;
+    case 23:
+      dateOrdinal = 'rd';
+      break;
+    default:
+      dateOrdinal = 'th';
+  }
+
+  // SWITCH CASE FOR GENERATING monthName('Jan', 'Feb', etc..)
+  switch (month) {
+    case 1:
+      monthName = 'Jan';
+      break;
+    case 2:
+      monthName = 'Feb';
+      break;
+    case 3:
+      monthName = 'Mar';
+      break;
+    case 4:
+      monthName = 'Apr';
+      break;
+    case 5:
+      monthName = 'May';
+      break;
+    case 6:
+      monthName = 'Jun';
+      break;
+    case 7:
+      monthName = 'Jul';
+      break;
+    case 8:
+      monthName = 'Aug';
+      break;
+    case 9:
+      monthName = 'Sep';
+      break;
+    case 10:
+      monthName = 'Oct';
+      break;
+    case 11:
+      monthName = 'Nov';
+      break;
+    case 12:
+      monthName = 'Dec';
+      break;
+  }
+
+  transactionList.push({
+    amount: transAmount.value,
+    date: `${date + dateOrdinal} ${monthName} ${year} ${hours}:${minutes}`,
+    type: transType.value,
+    category: transCategory,
+  });
+
+  renderTransaction();
+}
+
 function renderTransaction() {
   let totalIncome = 0;
   let totalExpense = 0;
@@ -109,7 +205,7 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
               <option value="rent">Rent</option>
               <option value="subscriptions">Subscriptions</option>
               <option value="groceries">Groceries</option>
-              <option value="others ">Others</option>
+              <option value="others">Others</option>
             </select>
             <button type="submit" class="trans-add-btn">Add</button>
           </div>
