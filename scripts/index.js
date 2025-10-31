@@ -1,7 +1,7 @@
 if (transactionList) {
   document.querySelector('.chart-view').style.display = 'block';
 }
-// renderTransaction();
+renderTransaction();
 
 function renderTransaction() {
   let totalIncome = 0;
@@ -21,8 +21,18 @@ function renderTransaction() {
 
     html += `
         <div class="transaction">
-          <p class="trans-amount" style="color: ${color}">${transSign}${transaction.amount}</p>
-          <p>${transaction.date}</p>
+          <div class="trans-category-info">
+            <img
+              src="icons/category-icons/${transaction.category}-icon.svg"
+              alt=""
+              class="trans-category-icon"
+            />
+            <p class="trans-amount-sign" style="background-color: ${color}">${transSign}</p>
+          </div>
+          <div class="trans-info"></div>
+          <p class="trans-amount">52</p>
+          <p class="trans-category-name">${transaction.category}</p>
+          <p class="trans-date">${transaction.date}</p>
         </div>`;
   });
 
@@ -48,9 +58,9 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="28px"
+            height="1.75rem"
             viewBox="0 -960 960 960"
-            width="28px"
+            width="1.75rem"
             fill="#ffffff"
             class="close-popup-icon"
           >
@@ -73,7 +83,7 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
               <option value="income">Income</option>
               <option value="expense">Expense</option>
             </select>
-            <select class="trans-type-input trans-income-category" required>
+            <select class="trans-type-input trans-income-category trans-category" required>
               <option disabled>Select income category</option>
               <option value="salary">Salary</option>
               <option value="freelance">Freelance</option>
@@ -84,9 +94,9 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
               <option value="interest">Interest</option>
               <option value="rental-income">Rental Income</option>
               <option value="bonus">Bonus</option>
-              <option value="others-income">Others</option>
+              <option value="others">Others</option>
             </select>
-            <select class="trans-type-input trans-expense-category" required>
+            <select class="trans-type-input trans-expense-category trans-category" required>
               <option disabled>Select expense category</option>
               <option value="food">Food</option>
               <option value="transport">Transport</option>
@@ -99,7 +109,7 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
               <option value="rent">Rent</option>
               <option value="subscriptions">Subscriptions</option>
               <option value="groceries">Groceries</option>
-              <option value="others-expense">Others</option>
+              <option value="others ">Others</option>
             </select>
             <button type="submit" class="trans-add-btn">Add</button>
           </div>

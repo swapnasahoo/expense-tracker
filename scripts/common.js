@@ -36,6 +36,14 @@ document.querySelector(
 function createTransaction() {
   const transAmount = document.querySelector('.trans-amount-input');
   const transType = document.querySelector('.trans-type-input');
+  let transCategory = '';
+
+  // CODE TO CHECK WHICH trans-category IS SELECTED
+  if (transType.value === 'income') {
+    transCategory = document.querySelector('.trans-income-category').value;
+  } else if (transType.value === 'expense') {
+    transCategory = document.querySelector('.trans-expense-category').value;
+  }
 
   const createDateTime = new Date();
   let date = createDateTime.getDate();
@@ -115,33 +123,34 @@ function createTransaction() {
     amount: transAmount.value,
     date: `${date + dateOrdinal} ${monthName} ${year} ${hours}:${minutes}`,
     type: transType.value,
+    category: transCategory,
   });
 
   renderTransaction();
 }
 document.querySelector('.show-reset-data').addEventListener('click', () => {
   document.querySelector('.pop-up').innerHTML = `
-        <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="28px"
-            viewBox="0 -960 960 960"
-            width="28px"
-            fill="#ffffff"
-            class="close-popup-icon"
-          >
-            <path
-              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-            />
-          </svg>
-          <div class="reset-pop-up">
-            <div class="pop-up-name">
-              <h2>Are you sure?</h2>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="28px"
+              viewBox="0 -960 960 960"
+              width="28px"
+              fill="#ffffff"
+              class="close-popup-icon"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+            <div class="reset-pop-up">
+              <div class="pop-up-name">
+                <h2>Are you sure?</h2>
+              </div>
+              <p class="reset-confirm-msg">This will clear all transactions</p>
+              <button type="submit" class="reset-trans-btn">Delete</button>
             </div>
-            <p class="reset-confirm-msg">This will clear all transactions</p>
-            <button type="submit" class="reset-trans-btn">Delete</button>
-          </div>
-        </div>`;
+          </div>`;
   document.querySelector('.sidebar').classList.toggle('active');
   document.querySelector('nav ul li:first-child').classList.toggle('active');
   popUp.classList.add('active');
