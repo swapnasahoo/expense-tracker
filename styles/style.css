@@ -502,6 +502,25 @@ input[type='number'] {
   }
 }
 
+@media (max-width: 770px) {
+  .sidebar,
+  .filter-sidebar {
+    gap: 0.4rem;
+  }
+
+  .filter-type a,
+  .filter-category-income a,
+  .filter-category-expense a {
+    padding: 3px;
+  }
+
+  .filter-type,
+  .filter-category-income,
+  .filter-category-expense {
+    gap: 4px;
+  }
+}
+
 @media (max-width: 548px) {
   .nav-tabs {
     display: none;
@@ -540,16 +559,31 @@ input[type='number'] {
     left: 70px;
   }
 
-  .sidebar {
+  .sidebar,
+  .filter-sidebar {
     width: 100vw;
     background-color: rgb(255, 255, 255, 0.5);
     backdrop-filter: blur(100px);
     transition: 500ms all ease;
   }
 
-  .sidebar svg {
+  .sidebar svg,
+  .filter-sidebar svg {
     right: 80px;
     top: 30px;
+  }
+
+  .filter-type a,
+  .filter-category-income a,
+  .filter-category-expense a {
+    padding: 4px;
+  }
+
+  .filter-type,
+  .filter-category-income,
+  .filter-category-expense {
+    gap: 8px;
+    padding-right: 32px;
   }
 }
 
