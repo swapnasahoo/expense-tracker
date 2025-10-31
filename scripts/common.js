@@ -98,9 +98,7 @@ document.querySelector('.show-reset-data').addEventListener('click', () => {
     transactionList = [];
     localStorage.setItem('transactionList', JSON.stringify(transactionList));
     renderTransaction();
-    popUp.classList.add('close');
-    popUp.classList.remove('active');
-    popUp.style.opacity = '0';
-    popUp.style.pointerEvents = 'none';
+
+    closePopUp();
   });
 });
