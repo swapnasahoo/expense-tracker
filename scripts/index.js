@@ -308,7 +308,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // FREELANCE
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-freelance').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const freelance = transactionList.filter((t) => t.category === 'freelance');
   transactionList = freelance;
@@ -317,7 +317,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // BUSINESS
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-business').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const business = transactionList.filter((t) => t.category === 'business');
   transactionList = business;
@@ -326,7 +326,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // INVESTMENTS
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-investments').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const investments = transactionList.filter(
     (t) => t.category === 'investments'
@@ -337,7 +337,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // GIFT
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-gift').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const gift = transactionList.filter((t) => t.category === 'gift');
   transactionList = gift;
@@ -346,7 +346,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // REFUND
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-refund').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const refund = transactionList.filter((t) => t.category === 'refund');
   transactionList = refund;
@@ -355,7 +355,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // INTEREST
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-interest').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const interest = transactionList.filter((t) => t.category === 'interest');
   transactionList = interest;
@@ -364,18 +364,20 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // RENTAL INCOME
-document.querySelector('.filter-salary').addEventListener('click', () => {
-  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
-  const rentalIncome = transactionList.filter(
-    (t) => t.category === 'rental-income'
-  );
-  transactionList = rentalIncome;
-  renderFilteredTransactions();
-  hideFilterMenu();
-});
+document
+  .querySelector('.filter-rental-income')
+  .addEventListener('click', () => {
+    transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+    const rentalIncome = transactionList.filter(
+      (t) => t.category === 'rental-income'
+    );
+    transactionList = rentalIncome;
+    renderFilteredTransactions();
+    hideFilterMenu();
+  });
 
 // BONUS
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-bonus').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const bonus = transactionList.filter((t) => t.category === 'bonus');
   transactionList = bonus;
@@ -386,7 +388,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 // CODE TO FILTER DIFFERENT CATEGORY(expense)
 
 // FOOD
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-food').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const food = transactionList.filter((t) => t.categsory === 'food');
   transactionList = food;
@@ -395,7 +397,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // TRANSPORT
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-transport').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const transport = transactionList.filter((t) => t.category === 'transport');
   transactionList = transport;
@@ -404,7 +406,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // SHOPPING
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-shopping').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const shopping = transactionList.filter((t) => t.category === 'shopping');
   transactionList = shopping;
@@ -413,18 +415,20 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // ENTERTAINMENT
-document.querySelector('.filter-salary').addEventListener('click', () => {
-  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
-  const entertainment = transactionList.filter(
-    (t) => t.category === 'entertainment'
-  );
-  transactionList = entertainment;
-  renderFilteredTransactions();
-  hideFilterMenu();
-});
+document
+  .querySelector('.filter-entertainment')
+  .addEventListener('click', () => {
+    transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+    const entertainment = transactionList.filter(
+      (t) => t.category === 'entertainment'
+    );
+    transactionList = entertainment;
+    renderFilteredTransactions();
+    hideFilterMenu();
+  });
 
 // HEALTH
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-health').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const health = transactionList.filter((t) => t.category === 'health');
   transactionList = health;
@@ -433,7 +437,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // EDUCATION
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-education').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const education = transactionList.filter((t) => t.category === 'education');
   transactionList = education;
@@ -442,7 +446,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // BILLS
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-bills').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const bills = transactionList.filter((t) => t.category === 'bills');
   transactionList = bills;
@@ -451,7 +455,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // TRAVEL
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-travel').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const travel = transactionList.filter((t) => t.category === 'travel');
   transactionList = travel;
@@ -460,7 +464,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // RENT
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-rent').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const rent = transactionList.filter((t) => t.category === 'rent');
   transactionList = rent;
@@ -469,18 +473,20 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // SUBSCRIPTIONS
-document.querySelector('.filter-salary').addEventListener('click', () => {
-  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
-  const subscriptions = transactionList.filter(
-    (t) => t.category === 'subscriptions'
-  );
-  transactionList = subscriptions;
-  renderFilteredTransactions();
-  hideFilterMenu();
-});
+document
+  .querySelector('.filter-subscriptions')
+  .addEventListener('click', () => {
+    transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+    const subscriptions = transactionList.filter(
+      (t) => t.category === 'subscriptions'
+    );
+    transactionList = subscriptions;
+    renderFilteredTransactions();
+    hideFilterMenu();
+  });
 
 // GROCERIES
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-groceries').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const groceries = transactionList.filter((t) => t.category === 'groceries');
   transactionList = groceries;
@@ -489,7 +495,7 @@ document.querySelector('.filter-salary').addEventListener('click', () => {
 });
 
 // CODE TO FILTER INCOME & EXPENSE(others only)
-document.querySelector('.filter-salary').addEventListener('click', () => {
+document.querySelector('.filter-others').addEventListener('click', () => {
   transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
   const others = transactionList.filter((t) => t.category === 'others');
   transactionList = others;
