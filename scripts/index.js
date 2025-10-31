@@ -147,7 +147,6 @@ function renderTransaction() {
 }
 
 // CODE TO MAKE THE POP UP(FOR CREATING TRANSACTION)
-const popUp = document.querySelector('.pop-up');
 
 document.querySelector('.show-trans-create').addEventListener('click', () => {
   document.querySelector('.pop-up').innerHTML = `

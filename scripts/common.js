@@ -1,5 +1,8 @@
 let transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
 
+const popUp = document.querySelector('.pop-up');
+const overlay = document.querySelector('.overlay');
+
 document.querySelector('.js-open-sidebar').addEventListener('click', () => {
   document.querySelector('.sidebar').classList.toggle('active');
   document.querySelector('nav ul li:first-child').classList.toggle('active');
@@ -23,6 +26,10 @@ function showPopUp() {
   popUp.classList.remove('close');
   popUp.style.opacity = '1';
   popUp.style.pointerEvents = 'all';
+
+  // TO SHOW OVERLAY
+  overlay.classList.add('active');
+  overlay.style.pointerEvents = 'all';
 }
 
 // CODE TO CLOSE POP UP
@@ -31,6 +38,10 @@ function closePopUp() {
   popUp.classList.remove('active');
   popUp.style.opacity = '0';
   popUp.style.pointerEvents = 'none';
+
+  // TO CLOSE OVERLAY
+  overlay.classList.remove('active');
+  overlay.style.pointerEvents = 'none';
 }
 
 // CODE TO GENERATER USER ID AND SAVE IT INTO localStorage
