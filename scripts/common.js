@@ -17,6 +17,22 @@ document.body.addEventListener('keydown', (e) => {
   }
 });
 
+// CODE TO SHOW POP UP
+function showPopUp() {
+  popUp.classList.add('active');
+  popUp.classList.remove('close');
+  popUp.style.opacity = '1';
+  popUp.style.pointerEvents = 'all';
+}
+
+// CODE TO CLOSE POP UP
+function closePopUp() {
+  popUp.classList.add('close');
+  popUp.classList.remove('active');
+  popUp.style.opacity = '0';
+  popUp.style.pointerEvents = 'none';
+}
+
 // CODE TO GENERATER USER ID AND SAVE IT INTO localStorage
 
 const userIDRef = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -58,16 +74,10 @@ document.querySelector('.show-reset-data').addEventListener('click', () => {
           </div>`;
   document.querySelector('.sidebar').classList.toggle('active');
   document.querySelector('nav ul li:first-child').classList.toggle('active');
-  popUp.classList.add('active');
-  popUp.classList.remove('close');
-  popUp.style.opacity = '1';
-  popUp.style.pointerEvents = 'all';
+  showPopUp();
 
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
-    popUp.classList.add('close');
-    popUp.classList.remove('active');
-    popUp.style.opacity = '0';
-    popUp.style.pointerEvents = 'none';
+    closePopUp();
   });
 
   // CODE TO RESET DATA

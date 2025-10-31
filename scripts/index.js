@@ -216,27 +216,18 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
   document.querySelector('.chart-view').style.display = 'none';
   document.querySelector('.filter-icon').style.display = 'none';
 
-  popUp.classList.add('active');
-  popUp.classList.remove('close');
-  popUp.style.opacity = '1';
-  popUp.style.pointerEvents = 'all';
+  showPopUp();
 
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
     document.querySelector('.chart-view').style.display = 'block';
     document.querySelector('.filter-icon').style.display = 'block';
 
-    popUp.classList.add('close');
-    popUp.classList.remove('active');
-    popUp.style.opacity = '0';
-    popUp.style.pointerEvents = 'none';
+    closePopUp();
   });
 
   document.querySelector('.trans-add-btn').addEventListener('click', () => {
     createTransaction();
-    popUp.classList.add('close');
-    popUp.classList.remove('active');
-    popUp.style.opacity = '0';
-    popUp.style.pointerEvents = 'none';
+    closePopUp();
   });
 
   // CODE TO CHOOSE TO DISPLAY B/W INCOME/EXPENSE CATEGORY TYPE
@@ -256,16 +247,16 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
 // CODE TO TOGGLE THE FILTER MENU
 // TO OPEN
 document.querySelector('.filter-icon').addEventListener('click', () => {
-  document.querySelector('nav h1').style.opacity = '0';
-  document.querySelector('.filter-sidebar').style.left = '0';
+  document.querySelector('.filter-sidebar').classList.toggle('active');
+  document.querySelector('nav ul li:first-child').classList.toggle('active');
 });
 
 // TO CLOSE
 document
   .querySelector('.close-filter-sidebar')
   .addEventListener('click', () => {
-    document.querySelector('nav h1').style.opacity = '1';
-    document.querySelector('.filter-sidebar').style.left = '-500px';
+    document.querySelector('.filter-sidebar').classList.toggle('active');
+    document.querySelector('nav ul li:first-child').classList.toggle('active');
   })
 
   // CODE TO FILTER INCOME & EXPENSE

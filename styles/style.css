@@ -141,7 +141,8 @@ nav ul li:first-child.active {
   margin-top: 45px;
 }
 
-.sidebar.active {
+.sidebar.active,
+.filter-sidebar.active {
   left: 0;
 }
 
