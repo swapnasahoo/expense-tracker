@@ -18,8 +18,18 @@ function renderFilteredTransactions() {
 
     html += `
         <div class="transaction">
-          <p class="trans-amount" style="color: ${color}">${transSign}${transaction.amount}</p>
-          <p>${transaction.date}</p>
+          <div class="trans-category-info">
+            <img
+              src="icons/category-icons/${transaction.category}-icon.svg"
+              alt=""
+              class="trans-category-icon"
+            />
+            <p class="trans-amount-sign" style="background-color: ${color}">${transSign}</p>
+          </div>
+          <div class="trans-info"></div>
+          <p class="trans-amount">52</p>
+          <p class="trans-category-name">${transaction.category}</p>
+          <p class="trans-date">${transaction.date}</p>
         </div>`;
   });
 

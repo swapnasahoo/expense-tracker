@@ -228,6 +228,9 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
   document.querySelector('.trans-add-btn').addEventListener('click', () => {
     createTransaction();
     closePopUp();
+
+    document.querySelector('.chart-view').style.display = 'block';
+    document.querySelector('.filter-icon').style.display = 'block';
   });
 
   // CODE TO CHOOSE TO DISPLAY B/W INCOME/EXPENSE CATEGORY TYPE
@@ -257,20 +260,19 @@ document
   .addEventListener('click', () => {
     document.querySelector('.filter-sidebar').classList.toggle('active');
     document.querySelector('nav ul li:first-child').classList.toggle('active');
-  })
-
-  // CODE TO FILTER INCOME & EXPENSE
-  // ALSO TO RESET FILTER
-
-  // FILTER INCOME
-  .document.querySelector('.filter-income')
-  .addEventListener('click', () => {
-    transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
-    const incomes = transactionList.filter((t) => t.type === 'income');
-    transactionList = incomes;
-    renderFilteredTransactions();
-    hideFilterMenu();
   });
+
+// CODE TO FILTER INCOME & EXPENSE
+// ALSO TO RESET FILTER
+
+// FILTER INCOME
+document.querySelector('.filter-income').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const incomes = transactionList.filter((t) => t.type === 'income');
+  transactionList = incomes;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
 
 // FILTER EXPENSE
 document.querySelector('.filter-expense').addEventListener('click', () => {
