@@ -1,7 +1,7 @@
 if (transactionList) {
   document.querySelector('.chart-view').style.display = 'block';
 }
-renderTransaction();
+// renderTransaction();
 
 function renderTransaction() {
   let totalIncome = 0;
