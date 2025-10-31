@@ -40,47 +40,85 @@ function renderTransaction() {
   localStorage.setItem('transactionList', JSON.stringify(transactionList));
 }
 
-// CODE TO MAKE THE POP UP
+// CODE TO MAKE THE POP UP(FOR CREATING TRANSACTION)
 const popUp = document.querySelector('.pop-up');
 
 document.querySelector('.show-trans-create').addEventListener('click', () => {
   document.querySelector('.pop-up').innerHTML = `
-      <div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="28px"
-          viewBox="0 -960 960 960"
-          width="28px"
-          fill="#ffffff"
-          class="close-popup-icon"
-        >
-          <path
-            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
-          />
-        </svg>
-        <div class="create-trans">
-          <h2>Add Transaction</h2>
-          <input
-            type="number"
-            placeholder="Enter the transaction amount"
-            class="trans-amount-input"
-            required
-          />
-        </div>
-        <div class="trans-type-div">
-          <select class="trans-type-input" required>
-            <option disabled>Select type</option>
-            <option value="income">Income</option>
-            <option value="expense">Expense</option>
-          </select>
-          <button type="submit" class="trans-add-btn">Add</button>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="28px"
+            viewBox="0 -960 960 960"
+            width="28px"
+            fill="#ffffff"
+            class="close-popup-icon"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+          <div class="create-trans">
+            <h2>Add Transaction</h2>
+            <input
+              type="number"
+              placeholder="Enter the transaction amount"
+              class="trans-amount-input"
+              required
+            />
+          </div>
+          <div class="trans-type-div">
+            <select class="trans-type-input" required>
+              <option>Select type</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+            <select class="trans-type-input trans-income-category" required>
+              <option disabled>Select income category</option>
+              <option value="salary">Salary</option>
+              <option value="freelance">Freelance</option>
+              <option value="business">Business</option>
+              <option value="investments">Investments</option>
+              <option value="gift">Gift</option>
+              <option value="refund">Refund</option>
+              <option value="interest">Interest</option>
+              <option value="rental-income">Rental Income</option>
+              <option value="bonus">Bonus</option>
+              <option value="others-income">Others</option>
+            </select>
+            <select class="trans-type-input trans-expense-category" required>
+              <option disabled>Select expense category</option>
+              <option value="food">Food</option>
+              <option value="transport">Transport</option>
+              <option value="shopping">Shopping</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="health">Health</option>
+              <option value="education">Education</option>
+              <option value="bills">Bills</option>
+              <option value="travel">Travel</option>
+              <option value="rent">Rent</option>
+              <option value="subscriptions">Subscriptions</option>
+              <option value="groceries">Groceries</option>
+              <option value="others-expense">Others</option>
+            </select>
+            <button type="submit" class="trans-add-btn">Add</button>
+          </div>
         </div>`;
+
+  // CODE TO REMOVE .chart-view and .filter-icon
+
+  document.querySelector('.chart-view').style.display = 'none';
+  document.querySelector('.filter-icon').style.display = 'none';
+
   popUp.classList.add('active');
   popUp.classList.remove('close');
   popUp.style.opacity = '1';
   popUp.style.pointerEvents = 'all';
 
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
+    document.querySelector('.chart-view').style.display = 'block';
+    document.querySelector('.filter-icon').style.display = 'block';
+
     popUp.classList.add('close');
     popUp.classList.remove('active');
     popUp.style.opacity = '0';
@@ -93,6 +131,19 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
     popUp.classList.remove('active');
     popUp.style.opacity = '0';
     popUp.style.pointerEvents = 'none';
+  });
+
+  // CODE TO CHOOSE TO DISPLAY B/W INCOME/EXPENSE CATEGORY TYPE
+  const transType = document.querySelector('.trans-type-input');
+
+  transType.addEventListener('input', () => {
+    if (transType.value === 'income') {
+      document.querySelector('.trans-expense-category').style.display = 'none';
+      document.querySelector('.trans-income-category').style.display = 'block';
+    } else if (transType.value === 'expense') {
+      document.querySelector('.trans-income-category').style.display = 'none';
+      document.querySelector('.trans-expense-category').style.display = 'block';
+    }
   });
 });
 

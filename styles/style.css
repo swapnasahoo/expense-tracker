@@ -205,6 +205,11 @@ input[type='number'] {
   cursor: pointer;
 }
 
+.trans-income-category,
+.trans-expense-category {
+  display: none;
+}
+
 .trans-add-btn,
 .reset-trans-btn {
   background-color: var(--cta-bg);
