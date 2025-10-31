@@ -47,7 +47,7 @@
   --cta-bg-hover: var(--color-primary-hover);
   --cta-text: #ffffff;
   --cta-radius: 40px;
-  --cta-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  --cta-shadow: 0 0 10px rgba(59, 130, 246, 0.3) inset;
 }
 
 * {
@@ -94,7 +94,8 @@ nav ul li:first-child.active {
   font-size: 20px;
 }
 
-.sidebar {
+.sidebar,
+.filter-sidebar {
   display: flex;
   flex-direction: column;
   gap: 0.7em;
@@ -109,6 +110,33 @@ nav ul li:first-child.active {
   transition: 300ms all ease-in-out;
 }
 
+.filter-type,
+.filter-category-income,
+.filter-category-expense {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-type a,
+.filter-category-income a,
+.filter-category-expense a {
+  background-color: var(--cta-bg);
+  padding: 4px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: var(--cta-shadow);
+  transition: 300ms all ease;
+}
+
+.filter-type a:hover,
+.filter-category-income a:hover,
+.filter-category-expense a:hover {
+  background-color: var(--cta-bg-hover);
+}
+
 .sidebar h3:first-child {
   margin-top: 45px;
 }
@@ -117,7 +145,8 @@ nav ul li:first-child.active {
   left: 0;
 }
 
-.sidebar svg {
+.sidebar svg,
+.filter-sidebar svg {
   position: absolute;
   top: 0;
   right: 0;

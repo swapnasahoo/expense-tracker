@@ -175,12 +175,12 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
           </div>
           <div class="trans-type-div">
             <select class="trans-type-input" required>
-              <option>Select type</option>
+              <option disabled selected>Select type</option>
               <option value="income">Income</option>
               <option value="expense">Expense</option>
             </select>
             <select class="trans-type-input trans-income-category trans-category" required>
-              <option disabled>Select income category</option>
+              <option disabled selected>Select income category</option>
               <option value="salary">Salary</option>
               <option value="freelance">Freelance</option>
               <option value="business">Business</option>
@@ -193,7 +193,7 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
               <option value="others">Others</option>
             </select>
             <select class="trans-type-input trans-expense-category trans-category" required>
-              <option disabled>Select expense category</option>
+              <option disabled selected>Select expense category</option>
               <option value="food">Food</option>
               <option value="transport">Transport</option>
               <option value="shopping">Shopping</option>
@@ -253,24 +253,33 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
   });
 });
 
-// CODE TO OPEN FILTERS MENU
-
+// CODE TO TOGGLE THE FILTER MENU
+// TO OPEN
 document.querySelector('.filter-icon').addEventListener('click', () => {
-  document.querySelector('.filter-menu-container').classList.toggle('active');
-  document.querySelector('.transaction-list').classList.toggle('active');
+  document.querySelector('nav h1').style.opacity = '0';
+  document.querySelector('.filter-sidebar').style.left = '0';
 });
 
-// CODE TO FILTER INCOME & EXPENSE
-// ALSO TO RESET FILTER
+// TO CLOSE
+document
+  .querySelector('.close-filter-sidebar')
+  .addEventListener('click', () => {
+    document.querySelector('nav h1').style.opacity = '1';
+    document.querySelector('.filter-sidebar').style.left = '-500px';
+  })
 
-// FILTER INCOME
-document.querySelector('.filter-income').addEventListener('click', () => {
-  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
-  const incomes = transactionList.filter((t) => t.type === 'income');
-  transactionList = incomes;
-  renderFilteredTransactions();
-  hideFilterMenu();
-});
+  // CODE TO FILTER INCOME & EXPENSE
+  // ALSO TO RESET FILTER
+
+  // FILTER INCOME
+  .document.querySelector('.filter-income')
+  .addEventListener('click', () => {
+    transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+    const incomes = transactionList.filter((t) => t.type === 'income');
+    transactionList = incomes;
+    renderFilteredTransactions();
+    hideFilterMenu();
+  });
 
 // FILTER EXPENSE
 document.querySelector('.filter-expense').addEventListener('click', () => {
