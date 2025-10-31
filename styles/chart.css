@@ -65,7 +65,7 @@
 
 @media (max-width: 588px) {
   .summary {
-    padding: 3em;
+    padding: 1em;
   }
 
   .pie-chart {
@@ -76,12 +76,45 @@
 
 @media (max-width: 425px) {
   .summary {
-    padding-top: 4em;
+    padding-top: 1em;
     margin-left: 10px;
   }
 
   .pie-chart {
     height: 320px;
     width: 320px;
+  }
+}
+
+@media (max-width: 375px) {
+  .filter-div {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .summary {
+    padding-top: 0.4em;
+    padding-left: 1.6em;
+  }
+
+  .pie-chart {
+    height: 300px;
+    width: 300px;
+  }
+
+  .back-btn {
+    bottom: -24px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .pie-chart {
+    height: 280px;
+    width: 280px;
+  }
+
+  .back-btn {
+    left: 40%;
   }
 }
