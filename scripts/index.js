@@ -262,6 +262,12 @@ document
     document.querySelector('nav ul li:first-child').classList.toggle('active');
   });
 
+// TO AUTO CLOSE AFTER FILTERING
+function hideFilterMenu() {
+  document.querySelector('nav ul li:first-child').style.opacity = '1';
+  document.querySelector('.filter-sidebar').classList.toggle('active');
+}
+
 // CODE TO FILTER INCOME & EXPENSE
 // ALSO TO RESET FILTER
 
@@ -290,6 +296,203 @@ document.querySelector('.filter-reset').addEventListener('click', () => {
   hideFilterMenu();
 });
 
-function hideFilterMenu() {
-  document.querySelector('.filter-menu-container').classList.toggle('active');
-}
+// CODE TO FILTER DIFFERENT CATEGORIES(income)
+
+// SALARY
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const salary = transactionList.filter((t) => t.category === 'salary');
+  transactionList = salary;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// FREELANCE
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const freelance = transactionList.filter((t) => t.category === 'freelance');
+  transactionList = freelance;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// BUSINESS
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const business = transactionList.filter((t) => t.category === 'business');
+  transactionList = business;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// INVESTMENTS
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const investments = transactionList.filter(
+    (t) => t.category === 'investments'
+  );
+  transactionList = investments;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// GIFT
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const gift = transactionList.filter((t) => t.category === 'gift');
+  transactionList = gift;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// REFUND
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const refund = transactionList.filter((t) => t.category === 'refund');
+  transactionList = refund;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// INTEREST
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const interest = transactionList.filter((t) => t.category === 'interest');
+  transactionList = interest;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// RENTAL INCOME
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const rentalIncome = transactionList.filter(
+    (t) => t.category === 'rental-income'
+  );
+  transactionList = rentalIncome;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// BONUS
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const bonus = transactionList.filter((t) => t.category === 'bonus');
+  transactionList = bonus;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// CODE TO FILTER DIFFERENT CATEGORY(expense)
+
+// FOOD
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const food = transactionList.filter((t) => t.categsory === 'food');
+  transactionList = food;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// TRANSPORT
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const transport = transactionList.filter((t) => t.category === 'transport');
+  transactionList = transport;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// SHOPPING
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const shopping = transactionList.filter((t) => t.category === 'shopping');
+  transactionList = shopping;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// ENTERTAINMENT
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const entertainment = transactionList.filter(
+    (t) => t.category === 'entertainment'
+  );
+  transactionList = entertainment;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// HEALTH
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const health = transactionList.filter((t) => t.category === 'health');
+  transactionList = health;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// EDUCATION
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const education = transactionList.filter((t) => t.category === 'education');
+  transactionList = education;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// BILLS
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const bills = transactionList.filter((t) => t.category === 'bills');
+  transactionList = bills;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// TRAVEL
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const travel = transactionList.filter((t) => t.category === 'travel');
+  transactionList = travel;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// RENT
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const rent = transactionList.filter((t) => t.category === 'rent');
+  transactionList = rent;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// SUBSCRIPTIONS
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const subscriptions = transactionList.filter(
+    (t) => t.category === 'subscriptions'
+  );
+  transactionList = subscriptions;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// GROCERIES
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const groceries = transactionList.filter((t) => t.category === 'groceries');
+  transactionList = groceries;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
+
+// CODE TO FILTER INCOME & EXPENSE(others only)
+document.querySelector('.filter-salary').addEventListener('click', () => {
+  transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
+  const others = transactionList.filter((t) => t.category === 'others');
+  transactionList = others;
+  renderFilteredTransactions();
+  hideFilterMenu();
+});
