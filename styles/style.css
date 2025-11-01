@@ -544,12 +544,11 @@ input[type='number'] {
   }
 
   .transaction-list {
-    margin-right: 20px;
+    margin-right: 45px;
   }
 
   .transaction {
-    width: 240px;
-    max-width: 80%;
+    width: 280px;
   }
 
   .trans-category-icon {
