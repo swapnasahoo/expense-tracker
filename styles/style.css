@@ -104,7 +104,7 @@ nav ul li:first-child.active {
   display: flex;
   flex-direction: column;
   gap: 0.7em;
-  background-color: rgb(255, 255, 255, 0.4);
+  background-color: var(--color-surface-light);
   width: 250px;
   height: 100%;
   position: fixed;
