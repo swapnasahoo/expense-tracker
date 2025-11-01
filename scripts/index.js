@@ -210,14 +210,23 @@ function showTransactionMenu() {
         </div>`;
 
   showPopUp();
+  // TO HIDE CHART VIEW AND FILTER ICON
+  document.querySelector('.chart-view').style.display = 'none';
+  document.querySelector('.filter-icon').style.display = 'none';
 
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
     closePopUp();
+    // TO SHOW CHART VIEW AND FILTER ICON
+    document.querySelector('.chart-view').style.display = 'block';
+    document.querySelector('.filter-icon').style.display = 'block';
   });
 
   document.querySelector('.trans-add-btn').addEventListener('click', () => {
     createTransaction();
     closePopUp();
+    // TO SHOW CHART VIEW AND FILTER ICON
+    document.querySelector('.chart-view').style.display = 'block';
+    document.querySelector('.filter-icon').style.display = 'block';
   });
 
   // CODE TO CHOOSE TO DISPLAY B/W INCOME/EXPENSE CATEGORY TYPE
