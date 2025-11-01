@@ -198,7 +198,9 @@ nav ul li:first-child.active {
   gap: 8px;
 }
 
-.trans-amount-input {
+.trans-amount-input,
+.loan-name-input,
+.loan-amount-input {
   width: 250px;
   padding: 8px 14px;
   border-radius: 36px;
@@ -221,7 +223,9 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-.trans-amount-input:focus {
+.trans-amount-input:focus,
+.loan-name-input:focus,
+.loan-amount-input:focus {
   background-color: transparent;
   border: 2px solid var(--input-border-focus);
   color: var(--color-text);
@@ -246,7 +250,8 @@ input[type='number'] {
 }
 
 .trans-add-btn,
-.reset-trans-btn {
+.reset-trans-btn,
+.loan-add-btn {
   background-color: var(--cta-bg);
   color: var(--cta-text);
   font-size: 16px;
@@ -259,7 +264,12 @@ input[type='number'] {
   height: 39.2px;
 }
 
-.trans-add-btn:hover {
+.loan-add-btn {
+  margin-top: 10px;
+}
+
+.trans-add-btn:hover,
+.loan-add-btn:hover {
   background-color: var(--cta-bg-hover);
 }
 
@@ -337,7 +347,8 @@ input[type='number'] {
   transition: 300ms all ease;
 }
 
-.show-trans-create:hover {
+.show-trans-create:hover,
+.show-loan-create:hover {
   background-color: var(--cta-bg-hover);
 }
 
@@ -495,7 +506,7 @@ input[type='number'] {
 }
 
 .loan {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-light);
 }
 
 .transaction:hover,
@@ -516,7 +527,7 @@ input[type='number'] {
 }
 
 .loan-icon {
-  background-color: var(--color-surface-light);
+  background-color: var(--color-surface);
   padding: 4px;
   border-radius: 4px;
 }
