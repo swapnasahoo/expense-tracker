@@ -14,7 +14,7 @@ document.querySelector('.js-close-sidebar').addEventListener('click', () => {
 });
 
 document.body.addEventListener('keydown', (e) => {
-  if (e.ctrlKey === true && e.key === 'b') {
+  if (e.ctrlKey === true && e.key.toLowerCase() === 'b') {
     document.querySelector('.sidebar').classList.toggle('active');
     document.querySelector('nav ul li:first-child').classList.toggle('active');
   }
