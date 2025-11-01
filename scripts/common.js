@@ -30,6 +30,10 @@ function showPopUp() {
   // TO SHOW OVERLAY
   overlay.classList.add('active');
   overlay.style.pointerEvents = 'all';
+
+  // TO HIDE CHART VIEW AND FILTER ICON
+  document.querySelector('.chart-view').style.display = 'none';
+  document.querySelector('.filter-icon').style.display = 'none';
 }
 
 // CODE TO CLOSE POP UP
@@ -42,6 +46,10 @@ function closePopUp() {
   // TO CLOSE OVERLAY
   overlay.classList.remove('active');
   overlay.style.pointerEvents = 'none';
+
+  // TO SHOW CHART VIEW AND FILTER ICON
+  document.querySelector('.chart-view').style.display = 'block';
+  document.querySelector('.filter-icon').style.display = 'block';
 }
 
 // CODE TO CLOSE POP UP ON CLICKING OVERLAY
