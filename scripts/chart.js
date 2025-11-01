@@ -43,7 +43,7 @@ if (income === 0 && expense === 0) {
       labels: ['Income', 'Expense'],
       datasets: [
         {
-          label: 'Transaction',
+          label: ' Amount ',
           data: [income, expense],
         },
       ],
@@ -154,7 +154,7 @@ new Chart(incomePieChart, {
     ],
     datasets: [
       {
-        label: 'Income',
+        label: ' Amount ',
         data: [
           salary,
           freelance,
@@ -282,7 +282,7 @@ new Chart(expensePieChart, {
     ],
     datasets: [
       {
-        label: 'Expense',
+        label: ' Amount ',
         data: [
           food,
           transport,
