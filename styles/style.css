@@ -322,7 +322,8 @@ input[type='number'] {
   gap: 14px;
 }
 
-.show-trans-create {
+.show-trans-create,
+.show-loan-create {
   background-color: var(--cta-bg);
   color: var(--cta-text);
   font-size: 16px;
@@ -397,12 +398,17 @@ input[type='number'] {
   opacity: 1;
 }
 
-.transaction-list {
+.transaction-list,
+.loan-list {
   padding: 3.5rem;
   width: 70vw;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.2rem;
+}
+
+.loan-list {
+  padding-top: 0;
 }
 
 .transaction-list.active {
@@ -475,7 +481,8 @@ input[type='number'] {
   text-decoration: none;
 }
 
-.transaction {
+.transaction,
+.loan {
   display: flex;
   align-items: center;
   padding: 10px 16px;
@@ -487,15 +494,31 @@ input[type='number'] {
   transition: 300ms all ease;
 }
 
-.transaction:hover {
+.loan {
+  background-color: var(--color-surface);
+}
+
+.transaction:hover,
+.loan:hover {
   box-shadow: 12px 12px 12px var(--color-shadow);
 }
 
-.trans-amount {
+.trans-amount,
+.loan-name {
   margin-right: auto;
   margin-left: -32px;
   font-weight: 600;
   font-size: 16px;
+}
+
+.loan-name {
+  margin-left: -20px;
+}
+
+.loan-icon {
+  background-color: var(--color-surface-light);
+  padding: 4px;
+  border-radius: 4px;
 }
 
 .trans-category-info {

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <h1 title="Open Sidebar CTRL + B" class="js-open-sidebar">
+                ExpenseMate
+              </h1>
+            </li>
+            <li><a href="#" class="nav-tabs">About Us</a></li>
+            <li>
+              <a
+                href="mailto:sahooswapnaswarup@gmail.com"
+                target="_blank"
+                class="nav-tabs"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="sidebar">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="32px"
+          viewBox="0 -960 960 960"
+          width="32px"
+          fill="#ffffff"
+          class="js-close-sidebar"
+        >
+          <title>Close Sidebar CTRL + B</title>
+          <path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z"
+          />
+        </svg>
+
+        <h1>ExpenseMate</h1>
+        <h3>Dashboard</h3>
+        <a class="total-income">Total Income: 0</a>
+        <a class="total-expense">Total Expense: 0</a>
+        <a class="remaining-bal">Remaining Balance: 0</a>
+
+        <h3>Settings</h3>
+        <a>Change Theme</a>
+        <a>Currency: INR</a>
+        <a class="user-id"></a>
+        <a class="show-reset-data">Reset Data</a>
+      </div>
+
+      <div class="overlay"></div>
+    </main>
+
+    <section class="dashboard">
+      <button class="show-loan-create">Add Loan</button>
+
+      <div class="pop-up"></div>
+      <div class="loan-list">
+        <div class="loan">
+          <img src="/icons/bank-icon.svg" class="loan-icon" />
+          <p class="loan-name">Home Loan</p>
+          <p>2997859</p>
+        </div>
+        <div class="loan">
+          <img src="/icons/bank-icon.svg" class="loan-icon" />
+          <p class="loan-name">Home Loan</p>
+          <p>2997859</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="scripts/common.js"></script>
+  </body>
+</html>
