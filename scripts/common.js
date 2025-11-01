@@ -44,6 +44,18 @@ function closePopUp() {
   overlay.style.pointerEvents = 'none';
 }
 
+// CODE TO CLOSE POP UP ON CLICKING OVERLAY
+overlay.addEventListener('click', () => {
+  closePopUp();
+});
+
+// CODE TO CLOSE POP UP ON ESC(on clikcing ESC on keyboard)
+document.body.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closePopUp();
+  }
+});
+
 // CODE TO GENERATER USER ID AND SAVE IT INTO localStorage
 
 const userIDRef = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
