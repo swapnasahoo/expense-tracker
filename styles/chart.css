@@ -78,6 +78,13 @@
   }
 }
 
+@media (max-width: 548px) {
+  .filter-div {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
 @media (max-width: 425px) {
   .summary {
     padding-top: 1em;
