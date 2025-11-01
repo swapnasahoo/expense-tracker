@@ -1,5 +1,6 @@
 const pieChart = document.querySelector('.pie-chart');
 const incomePieChart = document.querySelector('.income-pie-chart');
+const expensePieChart = document.querySelector('.expense-pie-chart');
 
 let income = 0;
 let expense = 0;
@@ -128,6 +129,7 @@ transactionList
     bonus += Number(t.amount);
   });
 
+// THIS WOULD GENERATE BOTH FOR EXPENSE AND INCOME(FOR NOW)
 transactionList
   .filter((t) => t.category === 'others')
   .forEach((t) => {
@@ -182,14 +184,155 @@ new Chart(incomePieChart, {
   },
 });
 
+// CODE TO GENERATE EXPENSE CATEGORY
+let food = 0;
+let transport = 0;
+let shopping = 0;
+let entertainment = 0;
+let health = 0;
+let education = 0;
+let bills = 0;
+let travel = 0;
+let rent = 0;
+let subscriptions = 0;
+let groceries = 0;
+
+transactionList
+  .filter((t) => t.category === 'food')
+  .forEach((t) => {
+    food += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'transport')
+  .forEach((t) => {
+    transport += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'shopping')
+  .forEach((t) => {
+    shopping += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'entertainment')
+  .forEach((t) => {
+    entertainment += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'health')
+  .forEach((t) => {
+    health += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'education')
+  .forEach((t) => {
+    education += Number(t.amount);
+  });
+transactionList
+  .filter((t) => t.category === 'bills')
+  .forEach((t) => {
+    bills += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'travel')
+  .forEach((t) => {
+    travel += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'rent')
+  .forEach((t) => {
+    rent += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'subscriptions')
+  .forEach((t) => {
+    subscriptions += Number(t.amount);
+  });
+
+transactionList
+  .filter((t) => t.category === 'groceries')
+  .forEach((t) => {
+    groceries += Number(t.amount);
+  });
+
+// PIE CHART
+new Chart(expensePieChart, {
+  type: 'pie',
+  data: {
+    labels: [
+      'Food',
+      'Transport',
+      'Shopping',
+      'Entertainment',
+      'Health',
+      'Education',
+      'Bills',
+      'Travel',
+      'Rent',
+      'Subscriptions',
+      'Groceries',
+      'Others',
+    ],
+    datasets: [
+      {
+        label: 'Expense',
+        data: [
+          food,
+          transport,
+          shopping,
+          entertainment,
+          health,
+          education,
+          bills,
+          travel,
+          rent,
+          subscriptions,
+          groceries,
+          others,
+        ],
+      },
+    ],
+  },
+  options: {
+    responsive: false,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#d3d3d3ff',
+        },
+      },
+    },
+  },
+});
+
 // TO RESET PIE CHART
 document.querySelector('.chart-reset-btn').addEventListener('click', () => {
   document.querySelector('.pie-chart').style.display = 'block';
   document.querySelector('.income-pie-chart').classList.remove('active');
+  document.querySelector('.expense-pie-chart').classList.remove('active');
 });
 
 // TO SHOW INCOME CATEGORY
 document.querySelector('.income-category-btn').addEventListener('click', () => {
   document.querySelector('.pie-chart').style.display = 'none';
+  document.querySelector('.expense-pie-chart').classList.remove('active');
   document.querySelector('.income-pie-chart').classList.add('active');
 });
+
+// TO SHOW EXPENSE CATEGORY
+document
+  .querySelector('.expense-category-btn')
+  .addEventListener('click', () => {
+    document.querySelector('.pie-chart').style.display = 'none';
+    document.querySelector('.income-pie-chart').classList.remove('active');
+    document.querySelector('.expense-pie-chart').classList.add('active');
+  });

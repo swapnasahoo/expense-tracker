@@ -7,8 +7,9 @@
   gap: 8px;
 }
 
+.chart-reset-btn,
 .income-category-btn,
-.chart-reset-btn {
+.expense-category-btn {
   padding: 4px 16px;
   background-color: var(--cta-bg);
   color: var(--cta-color-text);
@@ -22,7 +23,8 @@
   transition: 300ms all ease;
 }
 
-.income-category-btn:hover {
+.income-category-btn:hover,
+.expense-category-btn:hover {
   background-color: var(--cta-bg-hover);
 }
 
@@ -51,7 +53,8 @@
   margin-top: 50px;
 }
 
-.income-pie-chart {
+.income-pie-chart,
+.expense-pie-chart {
   height: 400px;
   width: 400px;
   cursor: pointer;
@@ -59,7 +62,8 @@
   display: none !important;
 }
 
-.income-pie-chart.active {
+.income-pie-chart.active,
+.expense-pie-chart.active {
   display: block !important;
 }
 
