@@ -539,12 +539,20 @@ input[type='number'] {
 }
 
 @media (max-width: 400px) {
+  .dashboard {
+    padding-top: 20px;
+  }
+
   .chart-view-div {
     width: 100%;
   }
 
   .transaction-list {
-    margin-right: 45px;
+    margin-right: 55px;
+  }
+
+  .show-trans-create {
+    margin-bottom: 30px;
   }
 
   .transaction {
