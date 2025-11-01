@@ -263,8 +263,43 @@ input[type='number'] {
   background-color: var(--cta-bg-hover);
 }
 
+.reset-all-div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.reset-all-btn {
+  height: 15px;
+  width: 15px;
+  border-radius: 2px;
+  border: 2px solid var(--input-border-focus);
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+
+.reset-all-btn img {
+  height: 15px;
+  width: 15px;
+}
+
+.reset-all-msg {
+  display: inline-block;
+}
+
+.reset-confirm-msg {
+  margin-top: 10px;
+  color: var(--color-text-muted);
+}
+
 .reset-trans-btn {
   background-color: var(--color-danger);
+  margin-top: 10px;
   transition: 300ms all ease;
 }
 

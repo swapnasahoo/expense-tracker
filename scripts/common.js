@@ -91,6 +91,12 @@ document.querySelector('.show-reset-data').addEventListener('click', () => {
               <div class="pop-up-name">
                 <h2>Are you sure?</h2>
               </div>
+              <div class="reset-all-div">
+                <button class="reset-all-btn">
+                <img src="icons/checkmark-icon.svg" />
+                </button>
+                <p class="reset-all-msg">Do you want to clear all user data?</p>
+              </div>
               <p class="reset-confirm-msg">This will clear all transactions</p>
               <button type="submit" class="reset-trans-btn">Delete</button>
             </div>
