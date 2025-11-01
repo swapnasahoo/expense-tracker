@@ -147,8 +147,7 @@ function renderTransaction() {
 }
 
 // CODE TO MAKE THE POP UP(FOR CREATING TRANSACTION)
-
-document.querySelector('.show-trans-create').addEventListener('click', () => {
+function showTransactionMenu() {
   document.querySelector('.pop-up').innerHTML = `
         <div>
           <svg
@@ -244,6 +243,10 @@ document.querySelector('.show-trans-create').addEventListener('click', () => {
       document.querySelector('.trans-expense-category').style.display = 'block';
     }
   });
+}
+
+document.querySelector('.show-trans-create').addEventListener('click', () => {
+  showTransactionMenu();
 });
 
 // CODE TO TOGGLE THE FILTER MENU
@@ -260,6 +263,27 @@ document
     document.querySelector('.filter-sidebar').classList.toggle('active');
     document.querySelector('nav ul li:first-child').classList.toggle('active');
   });
+
+// KEYBOARD SHORTCUTS
+document.body.addEventListener('keydown', (e) => {
+  // FOR FILTER SIDEBAR
+  if (
+    e.ctrlKey === true &&
+    e.shiftKey === true &&
+    e.key.toLowerCase() === 'f'
+  ) {
+    document.querySelector('.filter-sidebar').classList.toggle('active');
+    document.querySelector('nav ul li:first-child').classList.toggle('active');
+  }
+
+  // FOR ADD TRANSACTION POP UP
+  if (e.altKey === true && e.shiftKey === true && e.key.toLowerCase() === 'n') {
+    document.querySelector('.chart-view').style.display = 'none';
+    document.querySelector('.filter-icon').style.display = 'none';
+
+    showTransactionMenu();
+  }
+});
 
 // TO AUTO CLOSE AFTER FILTERING
 function hideFilterMenu() {
