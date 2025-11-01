@@ -1,3 +1,6 @@
+// TO LOAD loanList from localStorage
+renderLoanList();
+
 // CODE TO SHOW POP UP FOR CREATING LOAN
 const loanCreateBtn = document.querySelector('.show-loan-create');
 
@@ -74,6 +77,6 @@ function renderLoanList() {
         </div>`;
     document.querySelector('.loan-list').innerHTML += html;
   });
-}
 
-renderLoanList();
+  localStorage.setItem('loanList', JSON.stringify(loanList));
+}

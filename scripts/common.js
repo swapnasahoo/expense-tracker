@@ -1,5 +1,5 @@
 let transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
-let loanList = [];
+let loanList = JSON.parse(localStorage.getItem('loanList')) || [];
 
 const popUp = document.querySelector('.pop-up');
 const overlay = document.querySelector('.overlay');
