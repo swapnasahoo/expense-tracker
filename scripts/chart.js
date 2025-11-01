@@ -35,7 +35,8 @@ if (income === 0 && expense === 0) {
       Back
     </a>
     `;
-  document.querySelector('.summary').style.paddingBottom = '2rem';
+  document.querySelector('.summary h2').style.paddingTop = '8rem';
+  document.querySelector('.filter-div').style.display = 'none';
 } else {
   new Chart(pieChart, {
     type: 'pie',
