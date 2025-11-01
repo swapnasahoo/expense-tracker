@@ -1,10 +1,5 @@
 let transactionList = JSON.parse(localStorage.getItem('transactionList')) || [];
-let loanList = [
-  {
-    name: 'Car Loan',
-    amount: 2895885,
-  },
-];
+let loanList = [];
 
 const popUp = document.querySelector('.pop-up');
 const overlay = document.querySelector('.overlay');

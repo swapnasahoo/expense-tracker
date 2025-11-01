@@ -40,5 +40,40 @@ loanCreateBtn.addEventListener('click', () => {
     closePopUp();
   });
 
+  document.querySelector('.loan-add-btn').addEventListener('click', () => {
+    createLoan();
+    closePopUp();
+  });
+
   showPopUp();
 });
+
+// CODE TO CREATE loanList
+function createLoan() {
+  const loanName = document.querySelector('.loan-name-input');
+  const loanAmount = document.querySelector('.loan-amount-input');
+
+  loanList.push({
+    name: loanName.value,
+    amount: loanAmount.value,
+  });
+
+  renderLoanList();
+}
+
+// CODE TO RENDER loanList
+function renderLoanList() {
+  let html = '';
+
+  loanList.forEach((loan) => {
+    html = `
+        <div class="loan">
+          <img src="/icons/bank-icon.svg" class="loan-icon" />
+          <p class="loan-name">${loan.name}</p>
+          <p>${loan.amount}</p>
+        </div>`;
+    document.querySelector('.loan-list').innerHTML += html;
+  });
+}
+
+renderLoanList();
