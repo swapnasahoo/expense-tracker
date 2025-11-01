@@ -117,6 +117,38 @@ document.querySelector('.show-reset-data').addEventListener('click', () => {
     localStorage.setItem('transactionList', JSON.stringify(transactionList));
     renderTransaction();
 
+    if (isResetData) {
+      userID = '';
+
+      for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * 36);
+        userID += userIDRef[randomIndex];
+      }
+      localStorage.setItem('userID', userID);
+    }
+
+    document.querySelector('.user-id').innerHTML = ``;
+    document.querySelector(
+      '.user-id'
+    ).innerHTML = `UserID: <b class="user-id-ref">${userID}</b>`;
+
     closePopUp();
+  });
+
+  // CODE TO RESET ALL DATA
+  let isResetData = false;
+
+  document.querySelector('.reset-all-btn').addEventListener('click', () => {
+    document.querySelector('.reset-all-btn').classList.toggle('active');
+    document.querySelector('.reset-all-btn img').classList.toggle('active');
+    isResetData = !isResetData;
+
+    if (isResetData) {
+      document.querySelector('.reset-confirm-msg').innerHTML =
+        'This will clear all transactions and user data(including user id)';
+    } else {
+      document.querySelector('.reset-confirm-msg').innerHTML =
+        'This will clear all transactions';
+    }
   });
 });

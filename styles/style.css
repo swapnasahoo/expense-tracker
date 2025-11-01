@@ -274,27 +274,34 @@ input[type='number'] {
   height: 15px;
   width: 15px;
   border-radius: 2px;
-  border: 2px solid var(--input-border-focus);
+  border: 2px solid var(--color-primary-light);
   background-color: transparent;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4px;
+  transition: 300ms all ease;
 }
 
 .reset-all-btn img {
   height: 15px;
   width: 15px;
+  display: none;
 }
 
-.reset-all-msg {
-  display: inline-block;
+.reset-all-btn img.active {
+  display: block;
+}
+
+.reset-all-btn.active {
+  background-color: var(--color-primary-light);
 }
 
 .reset-confirm-msg {
   margin-top: 10px;
   color: var(--color-text-muted);
+  text-align: center;
 }
 
 .reset-trans-btn {
