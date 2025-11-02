@@ -81,14 +81,20 @@ function createLoan() {
 function renderLoanList() {
   let html = '';
 
-  loanList.forEach((loan) => {
+  loanList.forEach((loan, i) => {
     html += `
-        <div class="loan">
+        <div class="loan" data-loanIndex="${i}" >
           <img src="/icons/bank-icon.svg" class="loan-icon" />
           <p class="loan-name">${loan.name}</p>
           <p>${loan.amount}${loan.unit}</p>
-        </div>`;
+          </div>`;
   });
   document.querySelector('.loan-list').innerHTML = html;
   localStorage.setItem('loanList', JSON.stringify(loanList));
+
+  document.querySelectorAll('.loan').forEach((loanDiv) => {
+    loanDiv.addEventListener('click', () => {
+      const loanIndex = loanDiv.dataset.loanindex;
+    });
+  });
 }
