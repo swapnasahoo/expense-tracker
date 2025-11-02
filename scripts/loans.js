@@ -149,6 +149,7 @@ function createLoan() {
 // CODE TO RENDER loanList
 function renderLoanList() {
   let html = '';
+  let totalLoanAmount = 0;
 
   loanList.forEach((loan, i) => {
     html += `
@@ -157,7 +158,13 @@ function renderLoanList() {
           <p class="loan-name">${loan.name}</p>
           <p>${loan.amount}${loan.unit}</p>
           </div>`;
+
+    totalLoanAmount += loan.amount;
+    document.querySelector(
+      '.total-loan-amount'
+    ).innerHTML = `Total Loan Amount: ${totalLoanAmount}`;
   });
+  console.log(totalLoanAmount);
   document.querySelector('.loan-list').innerHTML = html;
   localStorage.setItem('loanList', JSON.stringify(loanList));
 
