@@ -251,7 +251,8 @@ input[type='number'] {
 
 .trans-add-btn,
 .reset-trans-btn,
-.loan-add-btn {
+.loan-add-btn,
+.reset-loan-btn {
   background-color: var(--cta-bg);
   color: var(--cta-text);
   font-size: 16px;
@@ -324,13 +325,15 @@ input[type='number'] {
   text-align: center;
 }
 
-.reset-trans-btn {
+.reset-trans-btn,
+.reset-loan-btn {
   background-color: var(--color-danger);
   margin-top: 10px;
   transition: 300ms all ease;
 }
 
-.reset-trans-btn:hover {
+.reset-trans-btn:hover,
+.reset-loan-btn:hover {
   background-color: #dc2626;
 }
 

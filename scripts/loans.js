@@ -201,3 +201,52 @@ function renderLoanList() {
     });
   });
 }
+
+// CODE TO RESET LOANS
+document.querySelector('.show-loan-reset').addEventListener('click', () => {
+  popUp.innerHTML = `
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="28px"
+              viewBox="0 -960 960 960"
+              width="28px"
+              fill="#ffffff"
+              class="close-popup-icon"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+            <div class="reset-pop-up">
+              <div class="pop-up-name">
+                <h2>Are you sure?</h2>
+              </div>
+              <div class="reset-all-div">
+                <button class="reset-all-btn">
+                <img src="icons/checkmark-icon.svg" />
+                </button>
+                <p class="reset-all-msg">Do you want to clear all user data?</p>
+              </div>
+              <p class="reset-confirm-msg">This will clear all loans</p>
+              <button type="submit" class="reset-loan-btn">Delete</button>
+            </div>
+          </div>`;
+
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('nav ul li:first-child').classList.toggle('active');
+  showPopUp();
+
+  document.querySelector('.close-popup-icon').addEventListener('click', () => {
+    closePopUp();
+  });
+
+  // DELETING LOANS
+  document.querySelector('.reset-loan-btn').addEventListener('click', () => {
+    loanList = [];
+    localStorage.setItem('loanList', JSON.stringify(loanList));
+    renderLoanList();
+
+    closePopUp();
+  });
+});

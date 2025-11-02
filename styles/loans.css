@@ -5,6 +5,10 @@
   width: 80vw;
 }
 
+.show-loan-reset {
+  cursor: pointer;
+}
+
 .pop-up {
   max-width: 80%;
 }
