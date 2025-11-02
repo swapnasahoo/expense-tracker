@@ -424,17 +424,12 @@ input[type='number'] {
   opacity: 1;
 }
 
-.transaction-list,
-.loan-list {
+.transaction-list {
   padding: 3.5rem;
   width: 70vw;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.2rem;
-}
-
-.loan-list {
-  padding-top: 0;
 }
 
 .transaction-list.active {
