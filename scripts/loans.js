@@ -42,13 +42,13 @@ loanCreateBtn.addEventListener('click', () => {
             <input
               type="number"
               placeholder="Enter the duration(in months)"
-              class="loan-duaration-input loan-input"
+              class="loan-duration-input loan-input"
               required
             />
             <input
               type="number"
               placeholder="Enter the duration left(in months)"
-              class="loan-duaration-left loan-input"
+              class="loan-duration-left loan-input"
               required
             />
             <input
@@ -69,6 +69,34 @@ loanCreateBtn.addEventListener('click', () => {
           </div>
         </div>`;
 
+  const loanEMI = document.querySelector('.loan-emi-input');
+  const loanDuration = document.querySelector('.loan-duration-input');
+  const loanDurationLeft = document.querySelector('.loan-duration-left');
+  const loanPaid = document.querySelector('.loan-paid-input');
+  const loanRemaning = document.querySelector('.loan-remaining-input');
+
+  // CALCULATING AND DISPLAYING LOAN PAID & LOAN REMANING AMOUNT
+  // CALCULATING
+  function calculateLoan() {
+    loanPaid.value =
+      Number(loanEMI.value) *
+      (Number(loanDuration.value) - Number(loanDurationLeft.value));
+    loanRemaning.value =
+      Number(document.querySelector('.loan-amount-input').value) -
+      Number(loanPaid.value);
+  }
+
+  // DISPLAYING
+  loanEMI.addEventListener('input', () => {
+    calculateLoan();
+  });
+  loanDuration.addEventListener('input', () => {
+    calculateLoan();
+  });
+  loanDurationLeft.addEventListener('input', () => {
+    calculateLoan();
+  });
+
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
     closePopUp();
   });
@@ -85,6 +113,12 @@ loanCreateBtn.addEventListener('click', () => {
 function createLoan() {
   const loanName = document.querySelector('.loan-name-input');
   let loanAmount = Number(document.querySelector('.loan-amount-input').value);
+  const loanEMI = document.querySelector('.loan-emi-input').value;
+  const loanDuration = document.querySelector('.loan-duration-input').value;
+  const loanDurationLeft = document.querySelector('.loan-duration-left').value;
+  const loanPaid = document.querySelector('.loan-paid-input').value;
+  const loanRemaning = document.querySelector('.loan-remaining-input').value;
+
   let unit = '';
 
   if (loanAmount >= 1000 && loanAmount <= 99999) {
@@ -102,6 +136,11 @@ function createLoan() {
     name: loanName.value,
     amount: loanAmount,
     unit: unit,
+    emi: loanEMI,
+    duration: loanDuration,
+    durationLeft: loanDurationLeft,
+    paid: loanPaid,
+    remaining: loanRemaning,
   });
 
   renderLoanList();
