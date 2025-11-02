@@ -243,10 +243,43 @@ document.querySelector('.show-loan-reset').addEventListener('click', () => {
 
   // DELETING LOANS
   document.querySelector('.reset-loan-btn').addEventListener('click', () => {
-    loanList = [];
-    localStorage.setItem('loanList', JSON.stringify(loanList));
-    renderLoanList();
+    if (isResetData) {
+      userID = '';
+      localStorage.setItem('userID', userID);
+
+      for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * 36);
+        userID += userIDRef[randomIndex];
+      }
+      localStorage.setItem('userID', userID);
+
+      document.querySelector(
+        '.user-id'
+      ).innerHTML = `UserID: <b class="user-id-ref">${userID}</b>`;
+      loanList = [];
+      localStorage.setItem('loanList', JSON.stringify(loanList));
+      renderLoanList();
+    }
 
     closePopUp();
+  });
+
+  // DELETING ALL USER DATA
+  let isResetData = false;
+
+  document.querySelector('.reset-all-btn').addEventListener('click', () => {
+    isResetData = !isResetData;
+
+    if (isResetData) {
+      document.querySelector('.reset-confirm-msg').innerHTML =
+        'This will clear all loans and user data(including user id)';
+      document.querySelector('.reset-all-btn').classList.toggle('active');
+      document.querySelector('.reset-all-btn img').classList.toggle('active');
+    } else {
+      document.querySelector('.reset-confirm-msg').innerHTML =
+        'This will clear all loans';
+      document.querySelector('.reset-all-btn').classList.toggle('active');
+      document.querySelector('.reset-all-btn img').classList.toggle('active');
+    }
   });
 });
