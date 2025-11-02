@@ -115,6 +115,7 @@ loanCreateBtn.addEventListener('click', () => {
 function createLoan() {
   const loanName = document.querySelector('.loan-name-input');
   let loanAmount = Number(document.querySelector('.loan-amount-input').value);
+  let loanAmountFormatted;
   const loanEMI = document.querySelector('.loan-emi-input').value;
   const loanDuration = document.querySelector('.loan-duration-input').value;
   const loanDurationLeft = document.querySelector('.loan-duration-left').value;
@@ -122,19 +123,23 @@ function createLoan() {
   const loanRemaning = document.querySelector('.loan-remaining-input').value;
 
   if (loanAmount >= 1000 && loanAmount <= 99999) {
-    loanAmount = (loanAmount / 1000).toFixed(2);
+    loanAmountFormatted = (loanAmount / 1000).toFixed(2);
     unit = 'K';
   } else if (loanAmount >= 100000 && loanAmount <= 9999999) {
-    loanAmount = (loanAmount / 100000).toFixed(2);
+    loanAmountFormatted = (loanAmount / 100000).toFixed(2);
     unit = 'L';
   } else if (loanAmount >= 10000000 && loanAmount <= 99999999) {
-    loanAmount = (loanAmount / 10000000).toFixed(2);
+    loanAmountFormatted = (loanAmount / 10000000).toFixed(2);
     unit = 'Cr';
+  } else {
+    loanAmountFormatted = loanAmount;
+    unit = '';
   }
 
   loanList.push({
     name: loanName.value,
     amount: loanAmount,
+    amountFormatted: loanAmountFormatted,
     unit: unit,
     emi: loanEMI,
     duration: loanDuration,
@@ -156,15 +161,14 @@ function renderLoanList() {
         <div class="loan" data-loanIndex="${i}" >
           <img src="/icons/bank-icon.svg" class="loan-icon" />
           <p class="loan-name">${loan.name}</p>
-          <p>${loan.amount}${loan.unit}</p>
+          <p>${loan.amountFormatted}${loan.unit}</p>
           </div>`;
 
     totalLoanAmount += loan.amount;
-    document.querySelector(
-      '.total-loan-amount'
-    ).innerHTML = `Total Loan Amount: ${totalLoanAmount}`;
   });
-  console.log(totalLoanAmount);
+  document.querySelector(
+    '.total-loan-amount'
+  ).innerHTML = `Total Loan Amount: ${totalLoanAmount}`;
   document.querySelector('.loan-list').innerHTML = html;
   localStorage.setItem('loanList', JSON.stringify(loanList));
 
