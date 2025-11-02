@@ -54,11 +54,24 @@ loanCreateBtn.addEventListener('click', () => {
 // CODE TO CREATE loanList
 function createLoan() {
   const loanName = document.querySelector('.loan-name-input');
-  const loanAmount = document.querySelector('.loan-amount-input');
+  let loanAmount = Number(document.querySelector('.loan-amount-input').value);
+  let unit = '';
+
+  if (loanAmount >= 1000 && loanAmount <= 99999) {
+    loanAmount = (loanAmount / 1000).toFixed(2);
+    unit = 'K';
+  } else if (loanAmount >= 100000 && loanAmount <= 9999999) {
+    loanAmount = (loanAmount / 100000).toFixed(2);
+    unit = 'L';
+  } else if (loanAmount >= 10000000 && loanAmount <= 99999999) {
+    loanAmount = (loanAmount / 10000000).toFixed(2);
+    unit = 'Cr';
+  }
 
   loanList.push({
     name: loanName.value,
-    amount: loanAmount.value,
+    amount: loanAmount,
+    unit: unit,
   });
 
   renderLoanList();
@@ -73,7 +86,7 @@ function renderLoanList() {
         <div class="loan">
           <img src="/icons/bank-icon.svg" class="loan-icon" />
           <p class="loan-name">${loan.name}</p>
-          <p>${loan.amount}</p>
+          <p>${loan.amount}${loan.unit}</p>
         </div>`;
   });
   document.querySelector('.loan-list').innerHTML = html;
