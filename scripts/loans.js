@@ -266,6 +266,14 @@ document.querySelector('.show-loan-reset').addEventListener('click', () => {
       loanList = [];
       localStorage.setItem('loanList', JSON.stringify(loanList));
       renderLoanList();
+    } else {
+      loanList = [];
+      localStorage.setItem('loanList', JSON.stringify(loanList));
+      totalLoanAmount = 0;
+      document.querySelector(
+        '.total-loan-amount'
+      ).innerHTML = `Total Loan Amount: ${totalLoanAmount}`;
+      renderLoanList();
     }
 
     closePopUp();
