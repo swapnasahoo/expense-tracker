@@ -185,12 +185,14 @@ nav ul li:first-child.active {
   padding-bottom: 6px;
 }
 
-.create-trans h2 {
+.create-trans h2,
+.create-loan h2 {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   padding-bottom: 6px;
 }
 
-.create-trans {
+.create-trans,
+.create-loan {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,8 +201,7 @@ nav ul li:first-child.active {
 }
 
 .trans-amount-input,
-.loan-name-input,
-.loan-amount-input {
+.loan-input {
   width: 250px;
   padding: 8px 14px;
   border-radius: 36px;
@@ -224,8 +225,7 @@ input[type='number'] {
 }
 
 .trans-amount-input:focus,
-.loan-name-input:focus,
-.loan-amount-input:focus {
+.loan-input:focus {
   background-color: transparent;
   border: 2px solid var(--input-border-focus);
   color: var(--color-text);
@@ -262,6 +262,16 @@ input[type='number'] {
   border-radius: 8px;
   transition: 300ms all ease-in-out;
   height: 39.2px;
+}
+
+.loan-duaration-left {
+  font-size: 15px;
+}
+
+.loan-paid-input,
+.loan-remaining-input {
+  cursor: not-allowed;
+  opacity: 0.97;
 }
 
 .loan-add-btn {
@@ -390,6 +400,11 @@ input[type='number'] {
 
 .reset-pop-up .pop-up-name {
   margin-bottom: 10px;
+}
+
+.loan-pop-up {
+  height: 450px;
+  width: 350px;
 }
 
 .overlay {
