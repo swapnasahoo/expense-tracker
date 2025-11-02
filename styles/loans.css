@@ -1,0 +1,36 @@
+.loan-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-right: 90px;
+}
+
+@media (max-width: 410px) {
+  .loan-list {
+    padding-right: 78px;
+  }
+}
+
+@media (max-width: 388px) {
+  .loan-list {
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 368px) {
+  .loan-list {
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 345px) {
+  .loan-list {
+    padding-right: 105px;
+  }
+}
+
+@media (max-width: 330px) {
+  .loan-list {
+    padding-right: 112px;
+  }
+}
