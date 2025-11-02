@@ -1,6 +1,8 @@
 // TO LOAD loanList from localStorage
 renderLoanList();
 
+let unit = '';
+
 // CODE TO SHOW POP UP FOR CREATING LOAN
 const loanCreateBtn = document.querySelector('.show-loan-create');
 
@@ -119,8 +121,6 @@ function createLoan() {
   const loanPaid = document.querySelector('.loan-paid-input').value;
   const loanRemaning = document.querySelector('.loan-remaining-input').value;
 
-  let unit = '';
-
   if (loanAmount >= 1000 && loanAmount <= 99999) {
     loanAmount = (loanAmount / 1000).toFixed(2);
     unit = 'K';
@@ -163,7 +163,41 @@ function renderLoanList() {
 
   document.querySelectorAll('.loan').forEach((loanDiv) => {
     loanDiv.addEventListener('click', () => {
-      const loanIndex = loanDiv.dataset.loanindex;
+      const index = loanDiv.dataset.loanindex;
+
+      popUp.innerHTML = `<div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1.75rem"
+            viewBox="0 -960 960 960"
+            width="1.75rem"
+            fill="#ffffff"
+            class="close-popup-icon"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+          <div class="create-loan">
+            <h2>${loanList[index].name} Info</h2>
+            <div class="loan-info">
+              <p><b>Name</b>: ${loanList[index].name}</p>
+              <p><b>Amount</b>: ${loanList[index].amount}${unit}</p>
+              <p><b>EMI</b>: ${loanList[index].emi}</p>
+              <p><b>Duration</b>: ${loanList[index].duration}</p>
+              <p><b>Duration Left</b>: ${loanList[index].durationLeft}</p>
+              <p><b>Amount Paid</b>: ${loanList[index].paid}</p>
+              <p><b>Amount remaining</b>: ${loanList[index].remaining}</p>
+            </div>
+          </div>
+        </div>`;
+
+      document
+        .querySelector('.close-popup-icon')
+        .addEventListener('click', () => {
+          closePopUp();
+        });
+      showPopUp();
     });
   });
 }
