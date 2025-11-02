@@ -67,10 +67,13 @@ loanCreateBtn.addEventListener('click', () => {
             />
           </div>
           <div class="trans-type-div">
+            <p class="loan-error-msg"></p>
             <button type="submit" class="loan-add-btn">Add</button>
           </div>
         </div>`;
 
+  const loanName = document.querySelector('.loan-name-input');
+  const loanAmount = document.querySelector('.loan-amount-input');
   const loanEMI = document.querySelector('.loan-emi-input');
   const loanDuration = document.querySelector('.loan-duration-input');
   const loanDurationLeft = document.querySelector('.loan-duration-left');
@@ -104,8 +107,20 @@ loanCreateBtn.addEventListener('click', () => {
   });
 
   document.querySelector('.loan-add-btn').addEventListener('click', () => {
-    createLoan();
-    closePopUp();
+    if (
+      loanName.value.trim() === '' &&
+      loanAmount.value.trim() === '' &&
+      loanEMI.value.trim() === '' &&
+      loanDuration.value.trim() === '' &&
+      loanDurationLeft.value.trim() === ''
+    ) {
+      document.querySelector('.create-loan h2').innerHTML =
+        'Please fill all fields';
+      return;
+    } else {
+      createLoan();
+      closePopUp();
+    }
   });
 
   showPopUp();
