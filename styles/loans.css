@@ -11,11 +11,30 @@
 
 .pop-up {
   max-width: 80%;
+  height: 500px;
+  margin-top: -50px;
 }
 
 .loan-input {
   width: 300px;
   max-width: 90%;
+}
+
+.loan-error-msg {
+  margin-top: 10px;
+  color: var(--color-danger);
+  font-family: 'Signika Negative';
+  font-size: 16px;
+  width: 250px;
+}
+
+.loan-add-btn {
+  margin-top: -6px;
+}
+
+.loan-add-btn.active {
+  pointer-events: none;
+  opacity: 0.8;
 }
 
 .loan-info {

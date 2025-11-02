@@ -79,6 +79,8 @@ loanCreateBtn.addEventListener('click', () => {
   const loanDurationLeft = document.querySelector('.loan-duration-left');
   const loanPaid = document.querySelector('.loan-paid-input');
   const loanRemaning = document.querySelector('.loan-remaining-input');
+  const errorMsg = document.querySelector('.loan-error-msg');
+  const loanAddBtn = document.querySelector('.loan-add-btn');
 
   // CALCULATING AND DISPLAYING LOAN PAID & LOAN REMANING AMOUNT
   // CALCULATING
@@ -91,15 +93,49 @@ loanCreateBtn.addEventListener('click', () => {
       Number(loanPaid.value);
   }
 
-  // DISPLAYING
+  // DISPLAYING AND VALIDATING
+  loanAmount.addEventListener('input', () => {
+    if (Number(loanEMI.value) > Number(loanAmount.value)) {
+      errorMsg.innerHTML = "Principal can't be smaller than EMI";
+      loanAddBtn.classList.add('active');
+    } else {
+      calculateLoan();
+      errorMsg.innerHTML = '';
+      loanAddBtn.classList.remove('active');
+    }
+  });
+
   loanEMI.addEventListener('input', () => {
-    calculateLoan();
+    if (Number(loanEMI.value) > Number(loanAmount.value)) {
+      errorMsg.innerHTML = "EMI can't be greater than principal";
+      loanAddBtn.classList.add('active');
+    } else {
+      calculateLoan();
+      errorMsg.innerHTML = '';
+      loanAddBtn.classList.remove('active');
+    }
   });
   loanDuration.addEventListener('input', () => {
-    calculateLoan();
+    if (Number(loanDurationLeft.value) > Number(loanDuration.value)) {
+      errorMsg.innerHTML =
+        "Loan duration value can't be smaller than loan duration left";
+      loanAddBtn.classList.add('active');
+    } else {
+      calculateLoan();
+      errorMsg.innerHTML = '';
+      loanAddBtn.classList.remove('active');
+    }
   });
   loanDurationLeft.addEventListener('input', () => {
-    calculateLoan();
+    if (Number(loanDurationLeft.value) > Number(loanDuration.value)) {
+      errorMsg.innerHTML =
+        "Loan duration value can't be greater than loan duration left";
+      loanAddBtn.classList.add('active');
+    } else {
+      calculateLoan();
+      errorMsg.innerHTML = '';
+      loanAddBtn.classList.remove('active');
+    }
   });
 
   document.querySelector('.close-popup-icon').addEventListener('click', () => {
@@ -114,8 +150,7 @@ loanCreateBtn.addEventListener('click', () => {
       loanDuration.value.trim() === '' &&
       loanDurationLeft.value.trim() === ''
     ) {
-      document.querySelector('.create-loan h2').innerHTML =
-        'Please fill all fields';
+      popUpName.innerHTML = 'Please fill all fields';
       return;
     } else {
       createLoan();
