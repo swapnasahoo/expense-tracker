@@ -250,8 +250,18 @@ function renderLoanList() {
               <p><b>Amount Paid</b>: ${loanList[index].paid}</p>
               <p><b>Amount remaining</b>: ${loanList[index].remaining}</p>
             </div>
+            <button class="delete-loan-btn">Delete</button>
           </div>
         </div>`;
+
+      document.querySelectorAll('.delete-loan-btn').forEach((deleteButton) => {
+        deleteButton.addEventListener('click', () => {
+          loanList.splice(index, 1);
+          localStorage.setItem('loanList', JSON.stringify('loanList'));
+          closePopUp();
+          renderLoanList();
+        });
+      });
 
       document
         .querySelector('.close-popup-icon')
