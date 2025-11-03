@@ -101,6 +101,8 @@ function createTransaction() {
 
 function renderTransaction() {
   if (!transactionList.toString()) {
+    // TO CLEAR TRANSACTION
+    document.querySelector('.transaction-list').innerHTML = '';
     // TO HIDE CHART VIEW AND FILTER ICON
     document.querySelector('.chart-view').style.display = 'none';
     document.querySelector('.filter-icon').style.display = 'none';
@@ -171,7 +173,7 @@ function renderTransaction() {
       });
 
       t.querySelector('.delete-icon').addEventListener('click', () => {
-        const index = t.querySelector('.delete-icon').dataset.index;
+        const index = Number(t.querySelector('.delete-icon').dataset.index);
         transactionList.splice(index, 1);
         localStorage.setItem(
           'transactionList',
