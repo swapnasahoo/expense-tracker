@@ -236,7 +236,7 @@ nav ul li:first-child {
 
 @keyframes show-up {
   0% {
-    opacity: 0.2;
+    opacity: 0;
     transform: translateY(50px);
   }
   100% {
