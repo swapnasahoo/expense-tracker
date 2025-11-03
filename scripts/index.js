@@ -28,20 +28,15 @@ function createTransaction() {
   // SWTICH CASE FOR GENERATING dateOrdinal(th, st, nd)
   switch (date) {
     case 1:
+    case 21:
+    case 31:
       dateOrdinal = 'st';
       break;
     case 2:
-      dateOrdinal = 'nd';
-      break;
-    case 3:
-      dateOrdinal = 'rd';
-      break;
-    case 21:
-      dateOrdinal = 'st';
-      break;
     case 22:
       dateOrdinal = 'nd';
       break;
+    case 3:
     case 23:
       dateOrdinal = 'rd';
       break;
