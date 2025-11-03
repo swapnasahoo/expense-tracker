@@ -561,6 +561,19 @@ input[type='number'] {
   border-radius: 4px;
 }
 
+.delete-icon {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  background-color: var(--color-danger);
+  transition: 300ms all ease;
+}
+
+.delete-icon.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .trans-amount-sign {
   background-color: var(--color-success);
   color: var(--color-text);

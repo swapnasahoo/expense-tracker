@@ -104,7 +104,7 @@ function renderTransaction() {
   let totalExpense = 0;
   let html = '';
 
-  transactionList.forEach((transaction) => {
+  transactionList.forEach((transaction, index) => {
     let color =
       transaction.type === 'income'
         ? 'var(--color-success)'
@@ -122,6 +122,12 @@ function renderTransaction() {
               src="icons/category-icons/${transaction.category}-icon.svg"
               alt=""
               class="trans-category-icon"
+            />
+            <img
+              src="icons/delete-icon.svg"
+              alt=""
+              class="trans-category-icon delete-icon"
+              data-index="${index}"
             />
             <p class="trans-amount-sign" style="background-color: ${color}">${transSign}</p>
           </div>
@@ -144,6 +150,24 @@ function renderTransaction() {
   }`;
 
   localStorage.setItem('transactionList', JSON.stringify(transactionList));
+
+  // CODE TO CHANGE CATEGORY ICON TO DELETE ICON ON HOVER
+  document.querySelectorAll('.transaction').forEach((t) => {
+    t.addEventListener('mouseenter', () => {
+      t.querySelector('.delete-icon').classList.add('active');
+    });
+
+    t.addEventListener('mouseleave', () => {
+      t.querySelector('.delete-icon').classList.remove('active');
+    });
+
+    t.querySelector('.delete-icon').addEventListener('click', () => {
+      const index = t.querySelector('.delete-icon').dataset.index;
+      transactionList.splice(index, 1);
+      localStorage.setItem('transactionList', JSON.stringify(transactionList));
+      renderTransaction();
+    });
+  });
 }
 
 // CODE TO MAKE THE POP UP(FOR CREATING TRANSACTION)
