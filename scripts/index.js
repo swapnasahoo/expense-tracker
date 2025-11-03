@@ -25,23 +25,15 @@ function createTransaction() {
   let dateOrdinal = '';
   let monthName = '';
 
-  // SWTICH CASE FOR GENERATING dateOrdinal(th, st, nd)
-  switch (date) {
-    case 1:
-    case 21:
-    case 31:
-      dateOrdinal = 'st';
-      break;
-    case 2:
-    case 22:
-      dateOrdinal = 'nd';
-      break;
-    case 3:
-    case 23:
-      dateOrdinal = 'rd';
-      break;
-    default:
-      dateOrdinal = 'th';
+  //  FOR GENERATING dateOrdinal(th, st, nd)
+  if ([1, 21, 31].includes(date)) {
+    dateOrdinal = 'st';
+  } else if ([2, 22].includes(date)) {
+    dateOrdinal = 'nd';
+  } else if ([3, 23].includes(date)) {
+    dateOrdinal = 'rd';
+  } else {
+    dateOrdinal = 'th';
   }
 
   // FOR GENERATING monthName('Jan', 'Feb', etc..)
