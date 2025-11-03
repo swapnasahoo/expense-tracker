@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <h1 title="Open Sidebar CTRL + B" class="js-open-sidebar">
+                ExpenseMate
+              </h1>
+            </li>
+            <li><a href="#" class="nav-tabs">About Us</a></li>
+            <li>
+              <a
+                href="mailto:sahooswapnaswarup@gmail.com"
+                target="_blank"
+                class="nav-tabs"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="sidebar">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="32px"
+          viewBox="0 -960 960 960"
+          width="32px"
+          fill="#ffffff"
+          class="js-close-sidebar"
+        >
+          <title>Close Sidebar CTRL + B</title>
+          <path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z"
+          />
+        </svg>
+
+        <h1>ExpenseMate</h1>
+        <h3>Dashboard</h3>
+        <a class="total-income">Total Income: 0</a>
+        <a class="total-expense">Total Expense: 0</a>
+        <a class="remaining-bal">Remaining Balance: 0</a>
+
+        <h3>Settings</h3>
+        <a>Change Theme</a>
+        <a>Currency: INR</a>
+        <a class="user-id"></a>
+        <a class="show-reset-data">Reset Data</a>
+      </div>
+
+      <div class="filter-sidebar">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="32px"
+          viewBox="0 -960 960 960"
+          width="32px"
+          fill="#ffffff"
+          class="close-filter-sidebar"
+        >
+          <path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z"
+          />
+        </svg>
+        <h1>ExpenseMate</h1>
+
+        <h3>Filter by type</h3>
+        <div class="filter-type">
+          <a class="filter-reset">Reset</a>
+          <a class="filter-income">Income</a>
+          <a class="filter-expense">Expense</a>
+        </div>
+
+        <h3>Filter by category(income)</h3>
+        <div class="filter-category-income">
+          <a class="filter-salary" onclick="filter('salary')">Salary</a>
+          <a class="filter-freelance" onclick="filter('freelance')"
+            >Freelance</a
+          >
+          <a class="filter-business" onclick="filter('business')">Business</a>
+          <a class="filter-investments" onclick="filter('investments')"
+            >Investments</a
+          >
+          <a class="filter-gift" onclick="filter('gift')">Gift</a>
+          <a class="filter-refund" onclick="filter('refund')">Refund</a>
+          <a class="filter-interest" onclick="filter('interest')">Interest</a>
+          <a class="filter-rental-income" onclick="filter('rental-income')"
+            >Rental Income</a
+          >
+          <a class="filter-bonus" onclick="filter('bonus')">Bonus</a>
+          <a class="filter-others" onclick="filter('others')">Others</a>
+        </div>
+
+        <h3>FIlter by category(expense)</h3>
+        <div class="filter-category-expense">
+          <a class="filter-food" onclick="filter('food')">Food</a>
+          <a class="filter-transport" onclick="filter('transport')"
+            >Transport</a
+          >
+          <a class="filter-shopping" onclick="filter('shopping')">Shopping</a>
+          <a class="filter-entertainment" onclick="filter('entertainment')"
+            >Entertainment</a
+          >
+          <a class="filter-health" onclick="filter('health')">Health</a>
+          <a class="filter-education" onclick="filter('education')"
+            >Education</a
+          >
+          <a class="filter-bills" onclick="filter('bills')">Bills</a>
+          <a class="filter-travel" onclick="filter('travel')">Travel</a>
+          <a class="filter-rent" onclick="filter('rent')">Rent</a>
+          <a class="filter-subscriptions" onclick="filter('subscriptions')"
+            >Subscriptions</a
+          >
+          <a class="filter-groceries" onclick="filter('groceries')"
+            >Groceries</a
+          >
+          <a class="filter-others" onclick="filter('others')">Others</a>
+        </div>
+      </div>
+
+      <div class="overlay"></div>
+    </main>
+
+    <section class="dashboard">
+      <button class="show-trans-create">Add Transaction</button>
+
+      <div class="pop-up"></div>
+
+      <div class="chart-view-div">
+        <a class="chart-view" href="chart.html">View as Chart</a>
+      </div>
+      <div class="filter-icon-div">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#ffffff"
+          class="filter-icon"
+        >
+          <path
+            d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"
+          />
+        </svg>
+      </div>
+      <div class="transaction-list"></div>
+    </section>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/filter-transaction.js"></script>
+    <script src="scripts/transactions.js"></script>
+  </body>
+</html>
