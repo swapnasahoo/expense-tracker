@@ -148,6 +148,7 @@ nav ul li:first-child {
   -webkit-text-fill-color: transparent;
   text-align: center;
   margin-bottom: 30px;
+  animation: show-up 0.8s 1;
 }
 
 .hero-info {
@@ -172,7 +173,9 @@ nav ul li:first-child {
   cursor: pointer;
   border: 2px solid transparent;
   transition: 300ms all ease;
+  animation: show-up 1s 1;
 }
+
 .get-started-cta {
   border: none;
 }
@@ -208,6 +211,7 @@ nav ul li:first-child {
 .hero-stats-container {
   cursor: pointer;
   transition: 300ms all ease;
+  animation: show-up 1.2s 1;
 }
 
 .hero-stats-container:hover {
@@ -228,6 +232,17 @@ nav ul li:first-child {
 
 .hero-stats-container p:last-child {
   font-weight: 500;
+}
+
+@keyframes show-up {
+  0% {
+    opacity: 0.2;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 748px) {
