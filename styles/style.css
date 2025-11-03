@@ -9,33 +9,33 @@
 /* <------ COLORS ------> */
 :root {
   /* Backgrounds */
-  --color-bg: #101418;
-  --color-surface: #1b1f24;
-  --color-surface-light: #262b31;
-  --color-surface-light-blur: rgb(38, 43, 49, 0.4);
-  --color-pop-up-bg: rgba(38, 43, 49, 0.6);
+  --color-bg: #0a0a0f;
+  --color-surface: #13131a;
+  --color-surface-light: #1a1a24;
+  --color-surface-light-blur: rgba(26, 26, 36, 0.4);
+  --color-pop-up-bg: rgba(32, 33, 46, 0.6);
 
   /* Text */
-  --color-text: #e5e7eb;
-  --color-text-muted: #9ca3af;
+  --color-text: #e8e8f0;
+  --color-text-muted: #a8a8b8;
 
-  /* Primary Accent (Blue) */
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
-  --color-primary-light: #60a5fa;
+  /* Primary Accent (Blue/Indigo) */
+  --color-primary: #6366f1;
+  --color-primary-hover: #7c3aed;
+  --color-primary-light: #818cf8;
 
-  /* Accent (Orange) */
-  --color-accent: #ff7b00;
-  --color-accent-hover: #e06a00;
+  /* Accent (Purple) */
+  --color-accent: #8b5cf6;
+  --color-accent-hover: #7c3aed;
 
   /* States */
-  --color-success: #22c55e;
+  --color-success: #10b981;
   --color-danger: #ef4444;
 
   /* Borders & Effects */
-  --color-border: #2e3439;
+  --color-border: #2a2a38;
   --color-shadow: rgba(0, 0, 0, 0.6);
-  --color-glow: rgba(59, 130, 246, 0.4);
+  --color-glow: rgba(99, 102, 241, 0.4);
 
   /* Input Elements */
   --input-bg: var(--color-surface);
@@ -45,14 +45,14 @@
   --input-placeholder: var(--color-text-muted);
   --input-radius: 10px;
   --input-padding: 10px 16px;
-  --input-glow: rgba(59, 130, 246, 0.4);
+  --input-glow: rgba(99, 102, 241, 0.4);
 
   /* CTA (Buttons) */
   --cta-bg: var(--color-primary);
   --cta-bg-hover: var(--color-primary-hover);
   --cta-text: #ffffff;
   --cta-radius: 40px;
-  --cta-shadow: 0 0 10px rgba(59, 130, 246, 0.3) inset;
+  --cta-shadow: 0 0 10px rgba(99, 102, 241, 0.3) inset;
 }
 
 * {
@@ -491,7 +491,7 @@ input[type='number'] {
 
 .chart-view::after {
   content: '';
-  background: linear-gradient(45deg, var(--color-danger), var(--color-accent));
+  background: linear-gradient(45deg, var(--color-accent), var(--color-accent));
   height: 2px;
   width: 100%;
   position: absolute;
