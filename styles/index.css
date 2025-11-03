@@ -352,6 +352,14 @@ nav ul li:first-child {
   .hero-stats-container p:last-child {
     font-size: 14px;
   }
+
+  .features-info {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .feature-card {
+    padding-bottom: 16px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -392,6 +400,10 @@ nav ul li:first-child {
   .cta-container {
     margin-left: 18px;
   }
+
+  .feature-card {
+    height: 220px;
+  }
 }
 
 @media (max-width: 364px) {
@@ -417,6 +429,14 @@ nav ul li:first-child {
 
   .cta-container {
     margin-left: 24px;
+  }
+
+  .features h2 {
+    font-size: 28px;
+  }
+
+  .feature-card {
+    margin-left: 10px;
   }
 }
 
