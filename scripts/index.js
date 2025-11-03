@@ -100,22 +100,31 @@ function createTransaction() {
 }
 
 function renderTransaction() {
-  let totalIncome = 0;
-  let totalExpense = 0;
-  let html = '';
+  if (!transactionList.toString()) {
+    // TO HIDE CHART VIEW AND FILTER ICON
+    document.querySelector('.chart-view').style.display = 'none';
+    document.querySelector('.filter-icon').style.display = 'none';
+  } else {
+    // TO SHOW CHART VIEW AND FILTER ICON
+    document.querySelector('.chart-view').style.display = 'block';
+    document.querySelector('.filter-icon').style.display = 'block';
 
-  transactionList.forEach((transaction, index) => {
-    let color =
-      transaction.type === 'income'
-        ? 'var(--color-success)'
-        : 'var(--color-danger)';
-    let transSign = transaction.type === 'income' ? '+' : '-';
-    totalIncome +=
-      transaction.type === 'income' ? Number(transaction.amount) : 0;
-    totalExpense -=
-      transaction.type === 'expense' ? Number(transaction.amount) : 0;
+    let totalIncome = 0;
+    let totalExpense = 0;
+    let html = '';
 
-    html += `
+    transactionList.forEach((transaction, index) => {
+      let color =
+        transaction.type === 'income'
+          ? 'var(--color-success)'
+          : 'var(--color-danger)';
+      let transSign = transaction.type === 'income' ? '+' : '-';
+      totalIncome +=
+        transaction.type === 'income' ? Number(transaction.amount) : 0;
+      totalExpense -=
+        transaction.type === 'expense' ? Number(transaction.amount) : 0;
+
+      html += `
         <div class="transaction">
           <div class="trans-category-info">
             <img
@@ -136,38 +145,42 @@ function renderTransaction() {
           <p class="trans-category-name">${transaction.category}</p>
           <p class="trans-date">${transaction.date}</p>
         </div>`;
-  });
-
-  document.querySelector('.transaction-list').innerHTML = html;
-  document.querySelector(
-    '.total-income'
-  ).innerHTML = `Total income: ${totalIncome}`;
-  document.querySelector(
-    '.total-expense'
-  ).innerHTML = `Total expense: ${totalExpense}`;
-  document.querySelector('.remaining-bal').innerHTML = `Remaining Balanace: ${
-    totalIncome + totalExpense
-  }`;
-
-  localStorage.setItem('transactionList', JSON.stringify(transactionList));
-
-  // CODE TO CHANGE CATEGORY ICON TO DELETE ICON ON HOVER
-  document.querySelectorAll('.transaction').forEach((t) => {
-    t.addEventListener('mouseenter', () => {
-      t.querySelector('.delete-icon').classList.add('active');
     });
 
-    t.addEventListener('mouseleave', () => {
-      t.querySelector('.delete-icon').classList.remove('active');
-    });
+    document.querySelector('.transaction-list').innerHTML = html;
+    document.querySelector(
+      '.total-income'
+    ).innerHTML = `Total income: ${totalIncome}`;
+    document.querySelector(
+      '.total-expense'
+    ).innerHTML = `Total expense: ${totalExpense}`;
+    document.querySelector('.remaining-bal').innerHTML = `Remaining Balanace: ${
+      totalIncome + totalExpense
+    }`;
 
-    t.querySelector('.delete-icon').addEventListener('click', () => {
-      const index = t.querySelector('.delete-icon').dataset.index;
-      transactionList.splice(index, 1);
-      localStorage.setItem('transactionList', JSON.stringify(transactionList));
-      renderTransaction();
+    localStorage.setItem('transactionList', JSON.stringify(transactionList));
+
+    // CODE TO CHANGE CATEGORY ICON TO DELETE ICON ON HOVER
+    document.querySelectorAll('.transaction').forEach((t) => {
+      t.addEventListener('mouseenter', () => {
+        t.querySelector('.delete-icon').classList.add('active');
+      });
+
+      t.addEventListener('mouseleave', () => {
+        t.querySelector('.delete-icon').classList.remove('active');
+      });
+
+      t.querySelector('.delete-icon').addEventListener('click', () => {
+        const index = t.querySelector('.delete-icon').dataset.index;
+        transactionList.splice(index, 1);
+        localStorage.setItem(
+          'transactionList',
+          JSON.stringify(transactionList)
+        );
+        renderTransaction();
+      });
     });
-  });
+  }
 }
 
 // CODE TO MAKE THE POP UP(FOR CREATING TRANSACTION)
