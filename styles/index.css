@@ -124,6 +124,10 @@ nav ul li:first-child {
   display: none;
 }
 
+.hero {
+  height: 100vh;
+}
+
 .hero-container {
   display: flex;
   flex-direction: column;
@@ -232,6 +236,62 @@ nav ul li:first-child {
 
 .hero-stats-container p:last-child {
   font-weight: 500;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 48px;
+}
+
+.features h2 {
+  font-size: 32px;
+  margin-bottom: 48px;
+}
+
+.features-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.feature-card {
+  background-color: var(--bg-secondary);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+  gap: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid transparent;
+  transition: 300ms all ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 2px 24px 4px var(--accent-hover);
+  border: 2px solid var(--accent-secondary);
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  height: 56px;
+  width: 56px;
+}
+
+.feature-name {
+  margin-top: 18px;
+}
+
+.feature-info-msg {
+  color: var(--text-secondary);
+  max-width: 540px;
 }
 
 @keyframes show-up {
