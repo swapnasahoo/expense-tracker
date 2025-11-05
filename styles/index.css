@@ -41,6 +41,18 @@
   /* Glow Effects */
   --glow-primary: 0 0 20px rgba(99, 102, 241, 0.3);
   --glow-secondary: 0 0 30px rgba(139, 92, 246, 0.3);
+
+  /* Real colors — medium tone, not eye-killing */
+  --profile-bg-1: #3b82f6; /* blue */
+  --profile-bg-2: #22c55e; /* green */
+  --profile-bg-3: #f97316; /* orange */
+  --profile-bg-4: #ef4444; /* red */
+  --profile-bg-5: #14b8a6; /* teal */
+  --profile-bg-6: #8b5cf6; /* purple */
+  --profile-bg-7: #0ea5e9; /* sky blue */
+  --profile-bg-8: #f43f5e; /* rose */
+  --profile-bg-9: #10b981; /* emerald */
+  --profile-bg-10: #eab308; /* amber */
 }
 
 * {
@@ -81,6 +93,19 @@ nav ul li:first-child {
 .nav-tabs {
   font-size: 18px;
   margin-right: 24px;
+}
+
+.user-profile {
+  font-size: 18px;
+  background-color: var(--profile-bg-8);
+  color: var(--text-primary);
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  align-content: center;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .hamburger-menu {
