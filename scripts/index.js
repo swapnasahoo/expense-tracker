@@ -20,10 +20,13 @@ function openProfileMenu() {
   document.querySelector('.profile-menu').classList.add('active');
   document.querySelector('.overlay').classList.add('active');
   document.body.classList.add('active');
+  document.querySelector('.hamburger-menu').classList.remove('active');
 }
 
-document.querySelector('.avatar-circle').addEventListener('click', () => {
-  openProfileMenu();
+document.querySelectorAll('.avatar-circle').forEach((elem) => {
+  elem.addEventListener('click', () => {
+    openProfileMenu();
+  });
 });
 
 // CLOSING PROFILE MENU
