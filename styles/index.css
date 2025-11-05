@@ -8,6 +8,8 @@
   --bg-secondary: #13131a;
   --bg-tertiary: #1a1a24;
   --bg-elevated: #20212e;
+  --bg-glass: rgba(255, 255, 255, 0.06);
+  --bg-glass-border: rgba(255, 255, 255, 0.12);
 
   /* Text Colors */
   --text-primary: #e8e8f0;
@@ -95,7 +97,7 @@ nav ul li:first-child {
   margin-right: 24px;
 }
 
-.user-profile {
+.avatar-circle {
   font-size: 18px;
   background-color: var(--profile-bg-8);
   color: var(--text-primary);
@@ -106,6 +108,106 @@ nav ul li:first-child {
   align-content: center;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.profile-menu {
+  background-color: rgba(32, 33, 46, 0.6);
+  backdrop-filter: blur(10px);
+  height: 70vh;
+  width: 50vh;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 6px;
+  z-index: 85;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 300ms all ease-in-out;
+}
+
+.profile-menu.active {
+  opacity: 1;
+  pointer-events: all;
+  animation: scale-up 0.4s 1;
+}
+
+.profile-menu.close {
+  animation: scale-down 0.4s 1;
+}
+
+.profile-close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 14px;
+  height: 30px;
+  width: 30px;
+}
+
+.user-info {
+  margin-top: 28px;
+  margin-bottom: auto;
+}
+
+.logout-btn {
+  margin-bottom: 28px;
+  font-size: 16px;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  border: 2px solid var(--error);
+  background-color: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 4px 24px;
+  border-radius: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.logout-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background-color: var(--error);
+  z-index: -1;
+  transition: 300ms all ease-in-out;
+}
+
+.logout-btn:hover::before {
+  width: 100%;
+}
+
+.overlay {
+  background-color: rgba(20, 24, 30, 0.6);
+  backdrop-filter: blur(100px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: 300ms all ease-in-out;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+body.active {
+  overflow: hidden;
 }
 
 .hamburger-menu {
@@ -327,6 +429,24 @@ nav ul li:first-child {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    scale: 0.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes scale-down {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0.5;
   }
 }
 
