@@ -110,6 +110,23 @@ nav ul li:first-child {
   cursor: pointer;
 }
 
+.signup-btn {
+  background-color: var(--info);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 18px;
+  padding: 4px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  margin-left: 24px;
+  transition: 300ms all ease-in-out;
+}
+
+.signup-btn:hover {
+  opacity: 0.9;
+}
+
 .profile-menu {
   background-color: rgba(32, 33, 46, 0.6);
   backdrop-filter: blur(10px);
