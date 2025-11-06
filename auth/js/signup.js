@@ -1,5 +1,8 @@
 import { auth } from './auth.js';
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
 
 // INPUT FIELDS FOR CREATING ACCOUNT(SIGN UP)
 const firstName = document.querySelector('.first-name-input');
@@ -44,11 +47,13 @@ async function register() {
       email.value,
       password.value
     );
-    const user = userCred.user;
-    let displayName = user.displayName;
-    displayName = `${firstName.value} ${lastName.value}`;
+    let user = userCred.user;
+    let name = firstName.value + lastName.value;
 
-    window.location.href = 'login.html';
+    await updateProfile(user, {
+      displayName: name,
+    });
+    // window.location.href = 'login.html';
   } catch (e) {
     console.log(`Error: ${e}`);
   }
