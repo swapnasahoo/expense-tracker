@@ -63,8 +63,10 @@ async function register() {
       password.value
     );
     const user = userCred.user;
-    let displayName = userCred.user.displayName;
+    let displayName = user.displayName;
     displayName = `${firstName.value} ${lastName.value}`;
+
+    window.location.href = 'login.html';
   } catch (e) {
     console.log(`Error: ${e}`);
   }
