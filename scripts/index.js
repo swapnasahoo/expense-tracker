@@ -21,10 +21,21 @@ document.querySelector('.cta-loan').addEventListener('click', () => {
 });
 
 // CHECKING USER IS SIGNED IN OR NOT
+let signupButtons = document.querySelectorAll('.signup-btn');
+let avatarCircles = document.querySelectorAll('.avatar-circle');
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    document.querySelector('.signup-btn').style.display = 'none';
-    document.querySelector('.avatar-circle').style.display = 'block';
+    signupButtons.forEach((btn) => {
+      btn.classList.add('hidden');
+      btn.classList.remove('visible');
+    });
+    avatarCircles.forEach((avatar) => {
+      avatar.classList.add('visible');
+      avatar.classList.remove('hidden');
+    });
+    document.querySelector('.avatar-info').classList.remove('hidden');
+
     let name = user.displayName || 'No name found';
 
     document.querySelector('.user-info').innerHTML = `
@@ -42,8 +53,16 @@ onAuthStateChanged(auth, (user) => {
                 />${user.email}
               </div>`;
   } else {
-    document.querySelector('.avatar-circle').style.display = 'none';
-    document.querySelector('.signup-btn').style.display = 'block';
+    signupButtons.forEach((btn) => {
+      btn.classList.remove('hidden');
+      btn.classList.add('visible');
+    });
+    avatarCircles.forEach((avatar) => {
+      avatar.classList.remove('visible');
+      avatar.classList.add('hidden');
+    });
+    document.querySelector('.avatar-info').classList.add('hidden');
+
     closeProfileMenu();
   }
 });

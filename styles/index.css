@@ -120,7 +120,6 @@ nav ul li:first-child {
   border-radius: 6px;
   cursor: pointer;
   box-shadow: var(--shadow-md);
-  display: none;
   transition: 300ms all ease-in-out;
 }
 
@@ -454,6 +453,15 @@ body.active {
   max-width: 540px;
 }
 
+/* FOR HIDING AND SHOWING ELEMENTS  */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
 @keyframes show-up {
   0% {
     opacity: 0;
@@ -483,7 +491,7 @@ body.active {
   }
 }
 
-@media (max-width: 748px) {
+@media (max-width: 868px) {
   .nav-tabs {
     display: none;
   }
