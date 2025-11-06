@@ -28,6 +28,8 @@ const confirmPassword = document.querySelector('.confirm-password-input');
 
 // FUNCTION TO VALIDATE SIGN UP FORM
 const inputs = document.querySelectorAll('input');
+const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
 function validateForm() {
   for (const input of inputs) {
     if (!input.checkValidity()) {
@@ -35,9 +37,16 @@ function validateForm() {
       return;
     }
   }
-  // PASSWORD COMPARISON
+  // PASSWORD VALIDATION
+  if (!passRegex.test(password.value)) {
+    document.querySelector('.error-msg').innerHTML =
+      'Password must contain 1 uppercase, lowercase, number and 8 character length';
+    password.focus();
+  }
+
   if (!(password.value === confirmPassword.value)) {
-    document.querySelector('.errr-msg').innerHTML =
+    // PASSWORD COMPARISON
+    document.querySelector('.error-msg').innerHTML =
       "Password doesn't match confirm password";
     return;
   }

@@ -161,11 +161,11 @@ a {
 }
 
 .error-msg {
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   margin-top: 10px;
   color: var(--error);
-  max-width: 100%;
+  max-width: 70%;
 }
 
 .auth-footer {
