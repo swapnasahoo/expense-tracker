@@ -56,6 +56,11 @@ body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
 .signup-section {
   display: flex;
   justify-content: center;
@@ -73,11 +78,6 @@ body {
   font-size: 18px;
   padding: 1em;
   cursor: pointer;
-}
-
-.return-home a {
-  color: var(--text-primary);
-  text-decoration: none;
 }
 
 .container {
@@ -173,8 +173,6 @@ body {
 }
 
 .auth-footer a {
-  color: var(--accent-primary);
-  text-decoration: none;
   margin-left: 12px;
 }
 
