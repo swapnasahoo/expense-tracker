@@ -42,10 +42,11 @@ function validateForm() {
     document.querySelector('.error-msg').innerHTML =
       'Password must contain 1 uppercase, lowercase, number and 8 character length';
     password.focus();
+    return;
   }
 
-  if (!(password.value === confirmPassword.value)) {
-    // PASSWORD COMPARISON
+  // PASSWORD COMPARISON
+  if (password.value !== confirmPassword.value) {
     document.querySelector('.error-msg').innerHTML =
       "Password doesn't match confirm password";
     return;
