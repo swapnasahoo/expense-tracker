@@ -108,6 +108,7 @@ nav ul li:first-child {
   align-content: center;
   border-radius: 50%;
   cursor: pointer;
+  display: none;
 }
 
 .signup-btn {
@@ -119,6 +120,7 @@ nav ul li:first-child {
   border-radius: 6px;
   cursor: pointer;
   box-shadow: var(--shadow-md);
+  display: none;
   transition: 300ms all ease-in-out;
 }
 

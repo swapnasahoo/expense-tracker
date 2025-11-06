@@ -1,3 +1,6 @@
+import { auth } from '/auth/js/auth.js';
+import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
+
 document.querySelector('.hamburger-icon').addEventListener('click', () => {
   document.querySelector('.hamburger-menu').classList.add('active');
 });
@@ -12,6 +15,15 @@ document.querySelector('.cta-trans').addEventListener('click', () => {
 
 document.querySelector('.cta-loan').addEventListener('click', () => {
   window.location.href = 'loans.html';
+});
+
+// CHECKING USER IS SIGNED IN OR NOT
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.querySelector('.avatar-circle').style.display = 'block';
+  } else {
+    document.querySelector('.signup-btn').style.display = 'block';
+  }
 });
 
 // OPENING PROFILE MENU
