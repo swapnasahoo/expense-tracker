@@ -21,6 +21,21 @@ document.querySelector('.cta-loan').addEventListener('click', () => {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     document.querySelector('.avatar-circle').style.display = 'block';
+
+    document.querySelector('.user-info').innerHTML = `
+              <div>
+                <img
+                  src="icons/profile-menu-icons/username-icon.svg"
+                  alt="username-icon"
+                />
+                ${user.displayName}
+              </div>
+              <div>
+                <img
+                  src="icons/profile-menu-icons/email-icon.svg"
+                  alt="email-icon"
+                />${user.email}
+              </div>`;
   } else {
     document.querySelector('.signup-btn').style.display = 'block';
   }
