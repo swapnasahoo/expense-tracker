@@ -35,6 +35,12 @@ function validateForm() {
       return;
     }
   }
+  // PASSWORD COMPARISON
+  if (!(password.value === confirmPassword.value)) {
+    document.querySelector('.errr-msg').innerHTML =
+      "Password doesn't match confirm password";
+    return;
+  }
   register();
 }
 

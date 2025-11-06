@@ -160,6 +160,14 @@ a {
   border: 2px solid var(--accent-hover);
 }
 
+.error-msg {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  color: var(--error);
+  max-width: 100%;
+}
+
 .auth-footer {
   display: flex;
   align-items: center;
