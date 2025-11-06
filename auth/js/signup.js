@@ -53,7 +53,7 @@ async function register() {
     await updateProfile(user, {
       displayName: name,
     });
-    // window.location.href = 'login.html';
+    window.location.href = 'login.html';
   } catch (e) {
     console.log(`Error: ${e}`);
   }
