@@ -1,5 +1,8 @@
 import { auth } from '/auth/js/auth.js';
-import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
+import {
+  onAuthStateChanged,
+  signOut,
+} from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
 
 document.querySelector('.hamburger-icon').addEventListener('click', () => {
   document.querySelector('.hamburger-menu').classList.add('active');
@@ -20,6 +23,7 @@ document.querySelector('.cta-loan').addEventListener('click', () => {
 // CHECKING USER IS SIGNED IN OR NOT
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    document.querySelector('.signup-btn').style.display = 'none';
     document.querySelector('.avatar-circle').style.display = 'block';
 
     document.querySelector('.user-info').innerHTML = `
@@ -37,8 +41,15 @@ onAuthStateChanged(auth, (user) => {
                 />${user.email}
               </div>`;
   } else {
+    document.querySelector('.avatar-circle').style.display = 'none';
     document.querySelector('.signup-btn').style.display = 'block';
+    closeProfileMenu();
   }
+});
+
+// FUNCTION TO SIGNOUT THE USER
+document.querySelector('.logout-btn').addEventListener('click', async () => {
+  await signOut(auth);
 });
 
 // OPENING PROFILE MENU
