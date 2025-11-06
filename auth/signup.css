@@ -132,13 +132,14 @@ body {
   border: none;
   border-radius: 40px;
   cursor: pointer;
+  border: 2px solid transparent;
   box-shadow: var(--shadow-md);
   transition: 300ms all ease;
 }
 
 .signup-btn:hover {
-  background-color: var(--accent-hover);
-  box-shadow: var(--glow-primary);
+  background-color: transparent;
+  border: 2px solid var(--accent-hover);
 }
 
 @media (max-width: 320px) {
