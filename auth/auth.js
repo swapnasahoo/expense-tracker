@@ -28,7 +28,7 @@ const confirmPassword = document.querySelector('.confirm-password-input');
 
 // FUNCTION TO VALIDATE SIGN UP FORM
 const inputs = document.querySelectorAll('input');
-const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
 
 function validateForm() {
   for (const input of inputs) {
