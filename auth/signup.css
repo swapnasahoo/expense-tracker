@@ -63,6 +63,23 @@ body {
   height: 100vh;
 }
 
+.return-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.return-home a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
 .container {
   height: 400px;
   background-color: var(--bg-secondary);
@@ -75,6 +92,7 @@ body {
 .signup {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .signup input {
@@ -140,6 +158,24 @@ body {
 .signup-btn:hover {
   background-color: transparent;
   border: 2px solid var(--accent-hover);
+}
+
+.auth-footer {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 8%;
+  left: 10%;
+}
+
+.auth-footer p {
+  color: var(--text-secondary);
+}
+
+.auth-footer a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  margin-left: 12px;
 }
 
 @media (max-width: 320px) {
