@@ -25,6 +25,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     document.querySelector('.signup-btn').style.display = 'none';
     document.querySelector('.avatar-circle').style.display = 'block';
+    let name = user.displayName || 'No name found';
 
     document.querySelector('.user-info').innerHTML = `
               <div>
@@ -32,7 +33,7 @@ onAuthStateChanged(auth, (user) => {
                   src="icons/profile-menu-icons/username-icon.svg"
                   alt="username-icon"
                 />
-                ${user.displayName}
+                ${name}
               </div>
               <div>
                 <img
