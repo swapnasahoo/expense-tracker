@@ -4,7 +4,6 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
-import { use } from 'react';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA_rj7S-E3QeJXr0lIvDLvJkBAaD1OVxtY',
@@ -26,6 +25,19 @@ const lastName = document.querySelector('.last-name-input');
 const email = document.querySelector('.email-input');
 const password = document.querySelector('.password-input');
 
+// FUNCTION TO VALIDATE SIGN UP FORM
+const input = document.querySelectorAll('input');
+function validateForm() {
+  input.forEach((input) => {
+    if (!input.checkValidity()) {
+      input.reportValidity();
+      return;
+    } else {
+      register();
+    }
+  });
+}
+
 // FUNCTION TO CREATE ACCOUNT(SIGN UP)
 async function register() {
   try {
@@ -35,11 +47,13 @@ async function register() {
       password.value
     );
     const user = userCred.user;
-    const displayName = userCred.user.displayName;
+    let displayName = userCred.user.displayName;
     displayName = `${firstName.value} ${lastName.value}`;
   } catch (e) {
     console.log(`Error: ${e}`);
   }
 }
 
-document.querySelector('.signup-btn').addEventListener('click', register);
+document.querySelector('.signup-btn').addEventListener('click', () => {
+  validateForm();
+});
