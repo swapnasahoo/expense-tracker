@@ -4,6 +4,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
+import { use } from 'react';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA_rj7S-E3QeJXr0lIvDLvJkBAaD1OVxtY',
@@ -33,7 +34,9 @@ async function register() {
       email.value,
       password.value
     );
-    console.log(userCred.user);
+    const user = userCred.user;
+    const displayName = userCred.user.displayName;
+    displayName = `${firstName.value} ${lastName.value}`;
   } catch (e) {
     console.log(`Error: ${e}`);
   }
