@@ -75,6 +75,7 @@ a {
   left: 0;
   display: flex;
   align-items: center;
+  gap: 4px;
   padding: 1em;
   font-size: 18px;
 }
@@ -146,6 +147,19 @@ a {
 .login-btn:hover {
   background-color: transparent;
   border: 2px solid var(--accent-hover);
+}
+
+.auth-footer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 8%;
+  left: 10%;
+  gap: 12px;
+}
+
+.auth-footer p {
+  color: var(--text-secondary);
 }
 
 @media (max-width: 320px) {
