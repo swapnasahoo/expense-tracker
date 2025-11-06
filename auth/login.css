@@ -111,6 +111,7 @@ a {
   outline: none;
   caret-color: var(--text-primary);
   box-shadow: var(--shadow-md);
+  color: var(--text-primary);
   border: 2px solid var(--accent-secondary);
 }
 
