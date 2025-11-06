@@ -56,6 +56,11 @@ async function register() {
     window.location.href = 'login.html';
   } catch (e) {
     console.log(`Error: ${e}`);
+
+    if (e.code === 'auth/email-already-in-use') {
+      document.querySelector('.error-msg').innerHTML =
+        'Email already in use. Log in instead.';
+    }
   }
 }
 
