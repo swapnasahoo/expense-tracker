@@ -24,18 +24,18 @@ const firstName = document.querySelector('.first-name-input');
 const lastName = document.querySelector('.last-name-input');
 const email = document.querySelector('.email-input');
 const password = document.querySelector('.password-input');
+const confirmPassword = document.querySelector('.confirm-password-input');
 
 // FUNCTION TO VALIDATE SIGN UP FORM
-const input = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('input');
 function validateForm() {
-  input.forEach((input) => {
+  for (const input of inputs) {
     if (!input.checkValidity()) {
       input.reportValidity();
       return;
-    } else {
-      register();
     }
-  });
+  }
+  register();
 }
 
 // FUNCTION TO CREATE ACCOUNT(SIGN UP)
