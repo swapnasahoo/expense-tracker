@@ -2,6 +2,7 @@ import { auth } from '/auth/js/auth.js';
 import {
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
 
 document.querySelector('.hamburger-icon').addEventListener('click', () => {
@@ -111,7 +112,18 @@ onAuthStateChanged(auth, (user) => {
               </div>
             </div>
 
-            <button class="logout-btn save-btn">Save</button>`;
+            <button class="save-btn">Save</button>`;
+
+      // CODE TO CHANGE THE USERNAME USING .save-btn
+      const saveButton = document.querySelector('.save-btn');
+      const newUsernameInput = document.querySelector('.username-change-input');
+      saveButton.addEventListener('click', async () => {
+        await updateProfile(user, {
+          displayName: newUsernameInput.value,
+        });
+        closeProfileMenu();
+        window.location.reload();
+      });
     }
 
     // TO SHOW USER AVATAR(based on the name)
