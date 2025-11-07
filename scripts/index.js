@@ -52,6 +52,18 @@ onAuthStateChanged(auth, (user) => {
                   alt="email-icon"
                 />${user.email}
               </div>`;
+
+    // TO SHOW USER AVATAR(based on the name)
+    const avatarName = name[0].toUpperCase();
+    let avatarBg = localStorage.getItem('avatarBg');
+    if (!avatarBg) {
+      avatarBg = String(Math.floor(Math.random() * 10 + 1));
+      localStorage.setItem('avatarBg', avatarBg);
+    }
+    avatarCircles.forEach((avatar) => {
+      avatar.innerHTML = avatarName;
+      avatar.style.backgroundColor = `var(--profile-bg-${avatarBg})`;
+    });
   } else {
     signupButtons.forEach((btn) => {
       btn.classList.remove('hidden');
