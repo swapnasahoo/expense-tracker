@@ -108,7 +108,6 @@ nav ul li:first-child {
   align-content: center;
   border-radius: 50%;
   cursor: pointer;
-  display: none;
 }
 
 .signup-btn {
@@ -180,11 +179,35 @@ nav ul li:first-child {
   gap: 10px;
 }
 
-.logout-btn {
+.username-edit-icon {
+  cursor: pointer;
+}
+
+.username-change-input {
+  background-color: transparent;
+  border: 2px solid var(--accent-primary);
+  outline: none;
+  padding: 8px 24px 8px 35px;
+  font-size: 16px;
+  color: var(--text-primary);
+  border-radius: 40px;
+}
+
+.input-change-box {
+  position: relative;
+}
+
+.input-change-box img {
+  position: absolute;
+  left: 10px;
+  color: var(--text-secondary);
+}
+
+.logout-btn,
+.save-btn {
   margin-bottom: 28px;
   font-size: 16px;
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
-  border: 2px solid var(--error);
   background-color: transparent;
   color: var(--text-primary);
   cursor: pointer;
@@ -197,19 +220,37 @@ nav ul li:first-child {
   gap: 8px;
 }
 
-.logout-btn::before {
+.logout-btn {
+  border: 2px solid var(--error);
+}
+
+.save-btn {
+  border: 2px solid var(--border-accent);
+}
+
+.logout-btn::before,
+.save-btn::before {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   height: 100%;
   width: 0;
-  background-color: var(--error);
   z-index: -1;
   transition: 300ms all ease-in-out;
 }
 
-.logout-btn:hover::before {
+.logout-btn::before {
+  background-color: var(--error);
+}
+
+.save-btn::before {
+  background-color: var(--accent-hover);
+  box-shadow: var(--glow-primary);
+}
+
+.logout-btn:hover::before,
+.save-btn:hover::before {
   width: 100%;
 }
 
