@@ -4,6 +4,8 @@ import {
   signOut,
   updateProfile,
 } from 'https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js';
+// VERCEL ANALYTICS
+import { inject } from '@vercel/analytics';
 
 document.querySelector('.hamburger-icon').addEventListener('click', () => {
   document.querySelector('.hamburger-menu').classList.add('active');
