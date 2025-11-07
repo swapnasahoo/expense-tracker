@@ -62,7 +62,7 @@ onAuthStateChanged(auth, (user) => {
       .querySelector('.username-edit-icon')
       .addEventListener('click', () => {
         document.querySelector('.profile-menu').innerHTML = `
-        <h2>Edit Username</h2>
+        <h2 class="profile-menu-name">Edit Username</h2>
             <img
               src="icons/close-icon.svg"
               alt="close-icon"
@@ -87,6 +87,71 @@ onAuthStateChanged(auth, (user) => {
           .querySelector('.profile-close-icon')
           .addEventListener('click', () => {
             closeProfileMenu();
+            document.querySelector('.user-info').innerHTML = `
+              <div>
+                <img
+                  src="icons/profile-menu-icons/username-icon.svg"
+                  alt="username-icon"
+                />
+                ${name}
+                <img src="/icons/profile-menu-icons/username-edit-icon.svg" alt="username-edit-icon" class="username-edit-icon"/>
+              </div>
+              <div>
+                <img
+                  src="icons/profile-menu-icons/email-icon.svg"
+                  alt="email-icon"
+                />${user.email}
+              </div>`;
+            document.querySelector('.profile-menu-name').innerHTML =
+              'User Info';
+            document
+              .querySelector('.username-edit-icon')
+              .addEventListener('click', () => {
+                document.querySelector('.profile-menu').innerHTML = `
+        <h2 class="profile-menu-name">Edit Username</h2>
+            <img
+              src="icons/close-icon.svg"
+              alt="close-icon"
+              class="profile-close-icon"
+            />
+            <div class="user-info">
+              <div class="input-change-box">
+                <input
+                  type="text"
+                  class="username-change-input"
+                  placeholder="Enter new username"
+                />
+                <img
+                  src="icons/profile-menu-icons/username-icon.svg"
+                  alt="username-icon"
+                />
+              </div>
+            </div>
+
+            <button class="logout-btn save-btn">Save</button>`;
+                document
+                  .querySelector('.profile-close-icon')
+                  .addEventListener('click', () => {
+                    closeProfileMenu();
+                    document.querySelector('.user-info').innerHTML = `
+              <div>
+                <img
+                  src="icons/profile-menu-icons/username-icon.svg"
+                  alt="username-icon"
+                />
+                ${name}
+                <img src="/icons/profile-menu-icons/username-edit-icon.svg" alt="username-edit-icon" class="username-edit-icon"/>
+              </div>
+              <div>
+                <img
+                  src="icons/profile-menu-icons/email-icon.svg"
+                  alt="email-icon"
+                />${user.email}
+              </div>`;
+                    document.querySelector('.profile-menu-name').innerHTML =
+                      'User Info';
+                  });
+              });
           });
       });
 
