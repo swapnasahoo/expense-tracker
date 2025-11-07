@@ -53,6 +53,11 @@ onAuthStateChanged(auth, (user) => {
                   alt="email-icon"
                 />${user.email}
               </div>`;
+
+    // CODE TO DISPLAY THE NAME OF USER IN HAMBURGER MENU
+    document.querySelector('.hamburger-menu-username').innerHTML = name;
+
+    // CODE TO EDIT USERNAME OF USER
     document
       .querySelector('.username-edit-icon')
       .addEventListener('click', () => {
